@@ -1,0 +1,44 @@
+<md-dialog id="artwork-manage-popup" aria-label="Artwork Edit">
+    <md-toolbar style="background-color: transparent;">
+        <div class="md-toolbar-tools">
+            <div class="tool-bar-top">
+                <div class="section">
+                    <h1 class="title">{{artwork.name}}</h1>
+                    <p class="sub">Added on {{artwork.date}}</p>
+                </div>
+                <div class="section">
+                    <md-button class="md-raised button bg-blue">Approve</md-button>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div class="section image-section">
+                <img src="{{artwork.images[0].file}}" alt="Artwork" class="image">
+                <div file-download file-name="artwork.images[0].name" file-data="artwork.images[0].file" >
+                    <span class="iconify" data-icon="akar-icons:download"></span> </a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4 class="title">Description</h4>
+
+                <p class="desc">
+                    {{artwork.note}}
+                </p>
+            </div>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <span flex></span>
+        <md-button class="md-primary button btn-outlined" ng-click="edit(artwork)">
+            Edit Details
+        </md-button>
+        <md-button ng-click="cancel()" class="button btn-outlined">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

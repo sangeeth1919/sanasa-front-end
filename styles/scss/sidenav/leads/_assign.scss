@@ -1,0 +1,45 @@
+#leadsManagement-assign-leads {
+    .content-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .leads {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 250px;
+            overflow-y: auto;
+
+            .lead {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+                width: 100%;
+                min-height: 150px;
+                border-radius: 5px;
+                border: 2px solid $gray2;
+                cursor: pointer;
+                transition: all 0.4s ease;
+
+                &[data-selected="true"] {
+                    background-color: #F4F6FF;
+                }
+
+                .top-wrap {
+                    display: flex;
+                    gap: 10px;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

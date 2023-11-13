@@ -1,0 +1,55 @@
+<md-content class="md-padding" id="otherArrangements">
+    <div class="input-wrap dropdown">
+        <md-select ng-model="otherArrangements" multiple
+            ng-change="handleOption(otherArrangements, 'otherArrangements')">
+            <md-select-header>
+                <input ng-model="searchTxt" class="input select-header-input" onkeydown="event.stopPropagation()">
+                <p style="padding: 10px; background-color: #F4F6FF; color: #100362; display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 20px; cursor: pointer;"
+                    class="otherArrangements-new" ng-click="handleOnNewArrangement({label: searchTxt, value: 0})">
+                    <span>
+                        Create New Arrangement Called <span style="color: #1f43f0;" class="highlight">“ {{searchTxt}}
+                            ”</span>
+                    </span>
+                    <span class="material-icons">
+                        add_circle_outline
+                    </span>
+                </p>
+            </md-select-header>
+            <md-optgroup label="otherArrangements">
+                <md-option ng-value="arrangement" ng-repeat="arrangement in otherArrangementsList | filter : searchTxt">
+                    {{arrangement.label}}
+                </md-option>
+            </md-optgroup>
+        </md-select>
+        <label>Select Other Arrangements from the list or create new arrangement</label>
+    </div>
+
+    <div class="top-total">
+        <p class="title color-dark-blue">Total Other Arrangements</p>
+        <p class="value"><span>LKR.</span> {{otherArrangementsTotal}}</p>
+    </div>
+
+    <div class="col-2">
+        <div class="item" ng-repeat="(i, arrangement) in otherArrangements">
+            <div class="content">
+                <div class="title-wrap">
+                    <p class="title color-dark-blue">{{arrangement.label}}</p>
+                    <file-upload func="handleOnFileUpload" index="{{i}}" >
+                        <md-button class="md-icon-button md-primary">
+                            <span class="material-icons upload-icon">
+                                cloud_upload
+                            </span>
+                        </md-button>
+                    </file-upload>
+                </div>
+                <input ng-change="handleOnTotalValueChange('otherArrangements')" ng-model="arrangement.value" min="0"
+                    type="number" class="input">
+            </div>
+            <md-button style="color: #FD5D5D;" ng-click="handleRemoveOption(i, 'otherArrangements')"
+                class="md-icon-button" aria-label="Close">
+                <md-icon style="color: #FD5D5D;" ng-bind="'delete'"></md-icon>
+            </md-button>
+        </div>
+    </div>
+
+</md-content>

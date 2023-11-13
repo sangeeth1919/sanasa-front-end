@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="container-top">
+        <div class="section">
+            <h2 class="title">New Lead</h2>
+            <p class="last-update">Please check the details and validate data</p>
+        </div>
+
+        <div ng-if="!!campaign.id" class="section">
+            <h3 class="title">Campaign ID</h3>
+            <p class="last-update">{{campaign.displayId}}</p>
+        </div>
+        <div ng-if="!!mainInfo.campaignDisplayId" class="section">
+            <h3 class="title">Campaign ID</h3>
+            <p class="last-update">{{mainInfo.campaignDisplayId}}</p>
+        </div>
+    </div>
+
+    <div class="tabs-section">
+        <md-content>
+            <md-tabs md-selected="newLeadTabIndex" md-dynamic-height md-border-bottom md-stretch-tabs="always">
+                <md-tab label="Basic Details">
+                    <div class="tab-div" id="newLeads-newLead-basicInfo" ng-include="'views/leads/new/new-lead/basicInfo.html'"></div>
+                </md-tab>
+                <md-tab label="Personal Info">
+                    <div class="tab-div" id="newLeads-newLead-personalInfo" ng-include="'views/leads/new/new-lead/personalInfo.html'"></div>
+                </md-tab>
+                <md-tab label="Contact Info">
+                    <div class="tab-div" id="newLeads-newLead-contactInfo" ng-include="'views/leads/new/new-lead/contactInfo.html'"></div>
+                </md-tab>
+                <md-tab label="Additional Info">
+                    <div class="tab-div" id="newLeads-newLead-additionalInfo" ng-include="'views/leads/new/new-lead/additionalInfo.html'"></div>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+
+    
+    <div class="buttons-wrap">
+        <md-button ng-if="newLeadTabIndex != 3" ng-click="continueToNextNewLeadStep()" class="md-raised button lg bg-blue">Continue</md-button>
+        <md-button ng-if="newLeadTabIndex == 3" ng-click="continueToNextNewLeadStep(0)" class="md-raised button lg bg-blue">Back</md-button>
+    </div>
+</div>

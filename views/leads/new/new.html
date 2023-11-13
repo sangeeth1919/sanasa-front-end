@@ -1,0 +1,56 @@
+<div id="newLeads" class="container" ng-controller="newLeadsController">
+
+    <div class="tabs-section top-tabs">
+        <md-content>
+            <md-tabs md-selected="tabIndex" md-dynamic-height md-border-bottom md-stretch-tabs="always">
+                <md-tab label="New Lead">
+                    <div class="tab-div" id="newLeads-lead" ng-include="'views/leads/new/lead.html'"></div>
+                </md-tab>
+                <md-tab label="Need Analysis">
+                    <div class="tab-div" id="newLeads-analysis" ng-include="'views/leads/new/analysis.html'"></div>
+                </md-tab>
+                <md-tab label="Sales Presentation">
+                    <div class="tab-div" id="newLeads-sales" ng-include="'views/leads/new/sales.html'"></div>
+                </md-tab>
+                <md-tab label="Follow-Up Interviews">
+                    <div class="tab-div" id="newLeads-interview" ng-include="'views/leads/new/interviews.html'"></div>
+                </md-tab>
+                <md-tab label="Issue Quotation">
+                    <div class="tab-div" id="newLeads-quotation" ng-include="'views/leads/new/quotation.html'"></div>
+                </md-tab>
+                <md-tab label="Proposal">
+                    <div class="tab-div" id="newLeads-proposal" ng-include="'views/leads/new/proposal.html'"></div>
+                </md-tab>
+                <md-tab label="Policy">
+                    <div class="tab-div" id="newLeads-policy" ng-include="'views/leads/new/policy.html'"></div>
+                </md-tab>
+                <md-tab label="Renewal Collection">
+                    <div class="tab-div" id="newLeads-renewal" ng-include="'views/leads/new/renewal.html'"></div>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+    
+
+    <div class="buttons-wrap">
+        <md-button ng-if="!updateState && tabIndex == 7" ng-click="saveLead()" class="button md-raised lg bg-blue">Save Lead</md-button>
+
+        <md-button ng-if="updateState && tabIndex == 0" ng-click="saveMainInfo()" class="button md-raised lg bg-blue">Save</md-button>
+        <md-button ng-if="updateState && tabIndex == 1 && analysisTabIndex == 4" ng-click="saveAnalysisPolicy()" class="button md-raised lg bg-blue">Save</md-button>
+    </div>
+
+    <section id="LeadManagement-sales-manage" class="side-nav" ng-include="'sidenav/leads/sales.html'" ></section>
+    <section id="LeadManagement-interview-manage" class="side-nav" ng-include="'sidenav/leads/interview.html'" ></section>
+    <section id="LeadManagement-quotation-manage" class="side-nav" ng-include="'sidenav/leads/quotation.html'" ></section>
+    <section id="LeadManagement-proposal-manage" class="side-nav" ng-include="'sidenav/leads/proposal.html'" ></section>
+    <section id="LeadManagement-policy-manage" class="side-nav" ng-include="'sidenav/leads/policy.html'" ></section>
+    <section id="LeadManagement-renewal-manage" class="side-nav" ng-include="'sidenav/leads/renewal.html'" ></section>
+    
+    <section id="LeadManagement-analysis-income-manage" class="side-nav" ng-include="'sidenav/leads/analysis/income.html'" ></section>
+    <section id="LeadManagement-analysis-assets-manage" class="side-nav" ng-include="'sidenav/leads/analysis/assets.html'" ></section>
+    <section id="LeadManagement-analysis-expenses-manage" class="side-nav" ng-include="'sidenav/leads/analysis/expenses.html'" ></section>
+    <section id="LeadManagement-analysis-personal-dependant-manage" class="side-nav" ng-include="'sidenav/leads/analysis/personal.dependant.html'" ></section>
+    <section id="LeadManagement-analysis-personal-nondependant-manage" class="side-nav" ng-include="'sidenav/leads/analysis/personal.nondependant.html'" ></section>
+    <section id="LeadManagement-analysis-personal-dependant-display" class="side-nav" ng-include="'sidenav/leads/analysis/personal.dependant.display.html'" ></section>
+    <section id="LeadManagement-analysis-personal-nondependant-display" class="side-nav" ng-include="'sidenav/leads/analysis/personal.nondependant.display.html'" ></section>
+</div>

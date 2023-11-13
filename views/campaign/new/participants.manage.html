@@ -1,0 +1,92 @@
+
+<md-content id="participantsManage" class="md-padding">
+    <div class="row-3">
+        <div class="input-wrap">
+            <input ng-model="participant.participants" min="0" class="input" type="number" placeholder="Number Of Participants" >
+            <label>Number Of Participants</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="participant.internalParticipants" min="0" class="input" type="number" placeholder="No Of Internal Participants">
+            <label>No Of Internal Participants</label>
+        </div>
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="participant.branch" aria-placeholder="Requested Branch">
+                <md-option value="Maharagama">Maharagama</md-option>
+                <md-option value="Nugegoda">Nugegoda</md-option>
+                <md-option value="Dehiwala">Dehiwala</md-option>
+            </md-select>
+            <label>Requested Branch</label>
+        </div>
+    </div>
+    <div class="row-date">
+        <div class="input-wrap">
+            <input ng-model="participant.dateFrom" type="date" class="input" placeholder="Date From" date-input > <!-- ng-value="participant.date | date: 'yyyy-MM-dd'" -->
+            <label class="label">Date From</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="participant.timeFrom" type="time" class="input" placeholder="Time From" date-input > <!-- ng-value="participant.time | date: 'HH:mm'" -->
+            <label class="label">Time From</label>
+        </div>
+    </div>
+    <div class="row-date">
+        <div class="input-wrap">
+            <input ng-model="participant.dateTo" type="date" class="input" placeholder="Date To" date-input > <!-- ng-value="participant.date | date: 'yyyy-MM-dd'" -->
+            <label class="label">Date To</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="participant.timeTo" type="time" class="input" placeholder="Time To" date-input > <!-- ng-value="participant.time | date: 'HH:mm'" -->
+            <label class="label">Time To</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="dropzone-wrap">
+            <input style="display: none;" type="file" name="file" id="participantsQuotationDropDownPdf"
+                accept="application/pdf, application/vnd.ms-excel" files="participant" variable="quotationsFiles"
+                file-change="application/pdf, application/vnd.ms-excel" multiple-files="true">
+    
+            <div ng-attr-data-uploaded="{{participant.quotationsFiles.length > 0 ? 'true' : 'false'}}" class="dropzone" file-dropzone="[application/pdf, application/vnd.ms-excel]" files="participant" variable="quotationsFiles" data-max-file-size="50">
+                <span ng-if="participant.quotationsFiles.length == 0" class="text">Upload Quotation (max. 50mb)</span>
+                <!-- <span ng-if="participant.quotationsFiles.length == 0" class="text">Drag or browse file to upload (max. 50mb)</span> -->
+                <span ng-if="participant.quotationsFiles.length > 0" class="text">{{participant.quotationsFiles[0].name}}</span>
+                <label ng-if="participant.quotationsFiles.length == 0" class="browse" for="participantsQuotationDropDownPdf">Browse</label>
+                <span ng-if="participant.quotationsFiles.length > 0" class="remove" ng-click="removeParticipantFile('quotationsFiles')" >Remove</span>
+            </div>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="participant.externalParticipants" min="0" class="input" type="number" placeholder="No Of External Participants">
+            <label>No Of External Participants</label>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="input-wrap">
+            <input ng-model="participant.externalParticipantsCost" min="0" class="input" type="number" placeholder="External Participants Cost">
+            <label>External Participants Cost</label>
+        </div>
+        <div class="dropzone-wrap">
+            <input style="display: none;" type="file" name="file" id="participantsListDropDownPdf"
+                accept="application/pdf, application/vnd.ms-excel" files="participant" variable="participantsFiles"
+                file-change="application/pdf, application/vnd.ms-excel" multiple-files="true">
+    
+            <div ng-attr-data-uploaded="{{participant.participantsFiles.length > 0 ? 'true' : 'false'}}" class="dropzone" file-dropzone="[application/pdf, application/vnd.ms-excel]" files="participant" variable="participantsFiles" data-max-file-size="50">
+                <span ng-if="participant.participantsFiles.length == 0" class="text">Upload Participants List (max. 50mb)</span>
+                <!-- <span ng-if="participant.participantsFiles.length == 0" class="text">Drag or browse file to upload (max. 50mb)</span> -->
+                <span ng-if="participant.participantsFiles.length > 0" class="text">{{participant.participantsFiles[0].name}}</span>
+                <label ng-if="participant.participantsFiles.length == 0" class="browse" for="participantsListDropDownPdf">Browse</label>
+                <span ng-if="participant.participantsFiles.length > 0" class="remove" ng-click="removeParticipantFile('participantsFiles')" >Remove</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-wrap">
+            <input ng-model="participant.other" class="input" min="0" type="number" placeholder="Other">
+            <label>Other</label>
+        </div>
+        <div class="input-wrap input-lg">
+            <input ng-model="participant.note" class="input" type="text" placeholder="Note">
+            <label>Note</label>
+        </div>
+    </div>   
+</md-content>

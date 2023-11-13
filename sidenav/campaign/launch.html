@@ -1,0 +1,116 @@
+<md-sidenav class="md-sidenav-right md-padding" md-component-id="campaign-management-launch" md-whiteframe="4"
+    md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('campaign-management-launch')" class="md-icon-button"
+                aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+
+        <div class="section">
+            <h3 class="title">Campaign Launch</h3>
+            <p class="desc">Last added {{getLastCreatedAt([campaign]) | lastUpdated}}</p>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content-wrap" layout-margin="">
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Campaign Progress</h4>
+                <md-button ng-click="handleExpand('campaign')" class="md-icon-button">
+                    <md-icon class="expand_more" ng-class="expandState(expand.campaign)" ng-bind="'expand_more'" ></md-icon>
+                </md-button>
+            </div>
+
+            <div ng-class="expandState(expand.campaign)" class="info-wrap">
+                <div class="info">
+                    <p class="title">Campaign name</p>
+                    <p class="value">{{campaign.name}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Branch</p>
+                    <p class="value">{{campaign.branch}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Date From</p>
+                    <p class="value">{{campaign.dateFrom | formatDate}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Time From</p>
+                    <p class="value">{{campaign.timeFrom | formatTime}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Date To</p>
+                    <p class="value">{{campaign.dateTo | formatDate}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Time To</p>
+                    <p class="value">{{campaign.timeTo | formatTime}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Target Location</p>
+                    <a ng-if="isValidURL(campaign.locationMap)" target="_blank" href="{{campaign.locationMap}}" class="value link">location</a>
+                    <p ng-if="!isValidURL(campaign.locationMap)" class="value">{{campaign.locationMap}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Channel</p>
+                    <p class="value">{{campaign.channel}}</p>
+                </div>
+                <div ng-if="campaign.continues == 'true'" class="info">
+                    <p class="title">Continues Days</p>
+                    <p class="value">{{campaign.continuesDays}}</p>
+                </div>
+            </div>
+
+            <div class="title-wrap">
+                <h4 class="title">Campaign Criteria</h4>
+            </div>
+
+            <div class="info-wrap">
+                <div class="info">
+                    <p class="title">Expected Recruitment</p>
+                    <p class="value">{{criteria.recruitmentNum}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Type</p>
+                    <p class="value">{{criteria.type}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Expecting Leads</p>
+                    <p class="value">{{criteria.expectingLeads}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Art Works</h4>
+                <md-button ng-click="handleExpand('artworks')" class="md-icon-button">
+                    <md-icon class="expand_more" ng-class="expandState(expand.artworks)" ng-bind="'expand_more'" ></md-icon>
+                </md-button>
+            </div>
+
+            <div ng-class="expandState(expand.artworks)" class="images-wrap">
+                <div class="image-wrap" ng-repeat="artwork in artworks">
+                    <img src="{{artwork.images[0].file}}" alt="Art work" class="image">
+
+                    <div class="title-wrap">
+                        <p class="title">{{artwork.images[0].name}}</p>
+                        <md-button file-download file-name="artwork.images[0].name" file-data="artwork.images[0].file" class="md-icon-button">
+                            <md-icon>
+                                <span class="iconify" data-icon="akar-icons:download"></span>
+                            </md-icon>
+                        </md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="campaign.launched != true" class="buttons-wrap">
+            <md-button ng-click="launchCampaign('campaign-management-launch')" class="md-primary md-raised button bg-blue lg" >Launch</md-button>
+            <md-button ng-click="closeSideNav('campaign-management-launch')" class="md-primary button btn-outlined lg" >Cancel</md-button>
+        </div>
+    </md-content>
+
+</md-sidenav>

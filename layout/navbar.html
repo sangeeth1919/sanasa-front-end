@@ -1,0 +1,29 @@
+<div id="navbar" ng-controller="NavbarController" >
+    <div class="section">
+        <md-button ng-click="handleOnMenuClick()" class="md-icon-button md-primary">
+            <md-icon ng-bind="'menu'"></md-icon>
+        </md-button>
+        <img src="../public/images/logo.png" alt="logo" class="logo">
+        <p class="logo-text">Surecore</p>
+    </div>
+    <div class="section">
+        <p class="sync-time">Last synced moments ago</p>
+        <p class="sync-status">Syncing...</p>
+
+        <div class="divider vertical"></div>
+
+        <div class="profile-wrap">
+            <p class="profile-name">Isuru</p>
+
+            <div class="profile-image letter" data-active={{!profile.state}}>
+                <span>{{profile.letter}}</span>
+            </div>
+
+            <img src={{profile.img}} alt="User" class="profile-image" data-active={{profile.state}}>
+
+            <md-button class="md-icon-button md-primary" >
+                <md-icon ng-bind="'keyboard_arrow_down'"></md-icon>
+            </md-button>
+        </div>
+    </div>
+</div>

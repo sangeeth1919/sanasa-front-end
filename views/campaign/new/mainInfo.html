@@ -1,0 +1,97 @@
+<md-content class="md-padding">
+    <div class="row">
+        <div class="input-wrap">
+            <input ng-model="mainInfo.name" class="input" type="text" placeholder="Campaign Name">
+            <label>Campaign Name</label>
+        </div>
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="mainInfo.locationType">
+                <md-option value="zone">Zone</md-option>
+            </md-select>
+            <label>Campaign Location Type</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-wrap">
+            <input ng-model="mainInfo.locationAddress" class="input" type="text" placeholder="Location Address">
+            <label>Location Address</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="mainInfo.locationMap" class="input" type="text" placeholder="Google Map Location">
+            <label>Google Map Location</label>
+        </div>
+    </div>
+    <div class="row-3">
+        <div class="input-wrap">
+            <input ng-model="mainInfo.locationLat" class="input" type="text" placeholder="Campaign Location Latitude">
+            <label>Campaign Location Latitude</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="mainInfo.locationLng" class="input" type="text" placeholder="Campaign Location Longitude">
+            <label>Campaign Location Longitude</label>
+        </div>
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="mainInfo.channel" aria-placeholder="Society">
+                <md-option value="society">Society</md-option>
+            </md-select>
+            <label>Business Channel</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-wrap">
+            <input ng-model="mainInfo.description" class="input" type="text" placeholder="Description">
+            <label>Description</label>
+        </div>
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="mainInfo.branch">
+                <md-option value="zone">Zone</md-option>
+            </md-select>
+            <label>Branch</label>
+        </div>
+    </div>
+    <div class="row-date">
+        <div class="input-wrap">
+            <input ng-model="mainInfo.dateFrom" type="date" class="input" placeholder="Date From" date-input>
+            <label class="label">Date From</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="mainInfo.timeFrom" type="time" class="input" placeholder="Time From" date-input>
+            <label class="label">Time From</label>
+        </div>
+    </div>
+    <div class="row-date">
+        <div class="input-wrap">
+            <input ng-model="mainInfo.dateTo" type="date" class="input" placeholder="Date To" date-input>
+            <label class="label">Date To</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="mainInfo.timeTo" type="time" class="input" placeholder="Time To" date-input>
+            <label class="label">Time To</label>
+        </div>
+    </div>
+    <div class="radio-btns">
+        <p class="title">Continues Campaign</p>
+        <md-radio-group class="row" ng-model="mainInfo.continues" aria-labelledby="vehicleType">
+            <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
+            <md-radio-button value="false" class="md-primary">No</md-radio-button>
+        </md-radio-group>
+    </div>
+    
+    <div ng-if="mainInfo.continues == 'true'" class="row-3" >
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="mainInfo.continuesDays" multiple>
+                <md-select-header>
+                    <input style="width: 88%;" ng-model="mainInfo.continuesDay" class="input select-header-input" onkeydown="event.stopPropagation()" placeholder="Date" >
+                </md-select-header>
+                <md-option value="monday">Monday</md-option>
+                <md-option value="tuesday">Tuesday</md-option>
+                <md-option value="wednesday">Wednesday</md-option>
+                <md-option value="thursday">Thursday</md-option>
+                <md-option value="friday">Friday</md-option>
+                <md-option value="saturday">Saturday</md-option>
+                <md-option value="sunday">Sunday</md-option>
+            </md-select>
+            <label>Day of the week</label>
+        </div>
+    </div>
+</md-content>

@@ -1,0 +1,47 @@
+<md-content class="md-padding">
+    <div class="container">
+        <div class="container-top">
+            <div class="section">
+                <h2 class="title">Sales Presentation</h2>
+                <p class="last-update">Please check the details and validate data</p>
+            </div>
+            <div class="section">
+                <md-button ng-click="openSideNav('leads-management-sales', {}, 'sale')" class="md-raised button lg bg-blue">Create Sales Presentation</md-button>
+            </div>
+        </div>
+        
+        <div class="table-wrap">
+            <table ng-table="SalesPresentationLeads" class="table" show-filter="false">
+                <tr ng-repeat="(i, item) in $data" class="table-row">
+                    <td title="'Lead ID'" filter="{ id: 'text'}" sortable="'id'">
+                        <h4 class="color-dark-blue">{{item.displayId || i}}</h4>
+                    </td>
+                    <td title="'First Name'" filter="{ fname: 'text'}" sortable="'fname'">
+                        {{item.fName}}
+                    </td>
+                    <td title="'Last Name'" filter="{ lname: 'text'}" sortable="'lname'">
+                        {{item.lName}}
+                    </td>
+                    <td title="'Contact Number'" filter="{ contact: 'text'}" sortable="'contact'">
+                        {{item.contact}}
+                    </td>
+                    <td title="'Date of Birth'" filter="{ dob: 'text'}" sortable="'dob'">
+                        {{item.dob | formatDate}}
+                    </td>
+                    <td title="'NIC No'" filter="{ nic: 'text'}" sortable="'nic'">
+                        {{item.nic}}
+                    </td>
+                    <td title="'Nationality'" filter="{ nationality: 'text'}" sortable="'nationality'">
+                        {{item.nationality}}
+                    </td>
+                    <td>
+                        <md-button ng-click="openSideNav('leads-management-sales', item, 'sale')" class="md-primary button">Manage</md-button>
+                    </td>
+                    <td>
+                        <md-button ng-click="deleteSalesPresentation(item.id)" class="md-secondary button">Remove</md-button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</md-content>

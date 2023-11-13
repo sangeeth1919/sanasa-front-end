@@ -1,0 +1,60 @@
+<md-sidenav class="md-sidenav-right md-padding" md-component-id="leads-management-leads" md-whiteframe="4" md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('leads-management-leads')" class="md-icon-button" aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+
+        <div class="section">
+            <h3 class="title">Campaign Lead</h3>
+            <p class="desc">{{lead.id}}</p>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content" layout-margin="">
+        <h4 class="title">Overview</h4>
+
+        <div class="info-wrap">
+            <div class="info">
+                <p class="title">Lead ID</p>
+                <p class="value">{{lead.displayId}}</p>
+            </div>
+            <div class="info">
+                <p class="title">First Name</p>
+                <p class="value">{{lead.fName}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Last Name</p>
+                <p class="value">{{lead.lName}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Contact Number</p>
+                <p class="value">{{lead.contact1}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Civil Status</p>
+                <p class="value">{{lead.civilStatus}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Date Of Birth</p>
+                <p class="value">{{lead.dob | formatDate}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Occupation</p>
+                <p class="value">{{lead.occupation}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Nationality</p>
+                <p class="value">{{lead.nationality}}</p>
+            </div>
+        </div>
+    </md-content>
+
+    <div class="buttons-wrap">
+        <md-button href="#/leads-management/new" ng-click="setRootLeadData(lead)" class="md-primary button btn-outlined" >Manage Lead</md-button>
+        <md-button href="#/leads-management/followup" ng-click="setRootLeadData(lead)" class="md-primary md-raised button bg-blue" >Leads Follow Up Circle</md-button>
+    </div>
+
+</md-sidenav>

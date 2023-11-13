@@ -1,0 +1,103 @@
+<md-sidenav class="md-sidenav-right md-padding" md-component-id="leads-management-quotation" md-whiteframe="4"
+    md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('leads-management-quotation')" class="md-icon-button"
+                aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+        
+        <div class="section">
+            <div class="image-section">
+                <div ng-if="!quotation.images[0]" class="image">
+                    <span class="nameLetter">{{quotation.name | extractFirstLetter}}</span>
+                </div>
+                <img ng-if="quotation.images[0]" src="{{quotation.images[0].file}}" alt="profile" class="image" />
+                <div class="text-wrap">
+                    <h3 class="title">{{quotation.name}}</h3>
+                    <p class="desc">{{quotation.id}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="social-section">
+            <a href="{{social.link}}" target="_blank" class="social-wrap" ng-repeat="social in socials">
+                <span class="iconify" data-icon="mdi:{{social.icon}}"></span>
+            </a>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content-wrap" layout-margin="">
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Description</h4>
+            </div>
+
+            <div class="inputs-wrap">
+                <div class="input-wrap">
+                    <input ng-model="quotation.title" class="input" type="text" placeholder="Title">
+                    <label>Title</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="quotation.customer" class="input" type="text" placeholder="Customer Name">
+                    <label>Customer Name</label>
+                </div>
+                <div class="input-wrap">
+                    <textarea ng-model="quotation.reason" class="input" type="text" placeholder="Reason">{{quotation.reason}}</textarea>
+                    <label>Reason</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+
+            <div class="inputs-wrap row">
+                <div class="input-wrap">
+                    <input ng-model="quotation.date" class="input" type="date" placeholder="Schedule Date">
+                    <label>Schedule Date</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="quotation.time" class="input" type="time" placeholder="Schedule Time">
+                    <label>Schedule Time</label>
+                </div>
+            </div>
+            <div class="inputs-wrap">
+                <div class="input-wrap dropdown">
+                    <md-select name="type" ng-model="quotation.product" aria-placeholder="Product">
+                        <md-option value="product 1">product 1</md-option>
+                    </md-select>
+                    <label>Product</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Status</h4>
+            </div>
+
+            <md-radio-group class="radio-wrap" ng-model="quotation.status" aria-labelledby="Status">
+                <md-radio-button class="md-primary" value="Not Started">Not Started</md-radio-button>
+                <md-radio-button class="md-primary" value="In Progress">In Progress</md-radio-button>
+                <md-radio-button class="md-primary" value="Completed">Completed</md-radio-button>
+              </md-radio-group>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Priority</h4>
+            </div>
+
+            <md-radio-group class="radio-wrap" ng-model="quotation.priority" aria-labelledby="Priority">
+                <md-radio-button class="md-primary" value="Low">Low</md-radio-button>
+                <md-radio-button class="md-primary" value="Normal">Normal</md-radio-button>
+                <md-radio-button class="md-primary" value="High">High</md-radio-button>
+                <md-radio-button class="md-primary" value="Critical">Critical</md-radio-button>
+              </md-radio-group>
+        </div>
+    </md-content>
+
+    <div class="buttons-wrap">
+        <md-button ng-click="saveQuotation('leads-management-quotation')" class="md-primary md-raised button bg-blue lg" >Send</md-button>
+        <md-button ng-click="closeSideNav('leads-management-quotation')" class="md-primary button btn-outlined lg" >Cancel</md-button>
+    </div>
+
+</md-sidenav>

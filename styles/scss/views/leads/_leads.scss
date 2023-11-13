@@ -1,0 +1,23 @@
+.table-wrap {
+    .status {
+        width: 100%;
+        min-width: 100px;
+        border-radius: 5px;
+        padding: 5px 10px 5px 10px;
+        text-transform: capitalize;
+        border: 2px solid #14BF97;
+        background-color: #F3FFFC;
+        color: #14BF97;
+
+        &[data-type="inactive"] {
+            background-color: #fcfdff;
+            border-color: #dbdef9;
+            color: #b5bfe4;
+        }
+    }
+}
+
+@import './new/new';
+@import './new/quotation';
+@import './new/lead';
+@import './new/analysis';

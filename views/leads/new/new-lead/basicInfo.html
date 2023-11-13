@@ -1,0 +1,81 @@
+<md-content class="md-padding main-content-wrap">
+    <div class="row-3">
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="mainInfo.title" aria-placeholder="Title">
+                <md-option value="Mr">Mr</md-option>
+                <md-option value="Mrs">Mrs</md-option>
+                <md-option value="Master">Master</md-option>
+                <md-option value="Miss">Miss</md-option>
+            </md-select>
+            <label>Title</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="mainInfo.fName" class="input" type="text" placeholder="First Name">
+            <label>First Name</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="mainInfo.lName" class="input" type="text" placeholder="Last Name">
+            <label>Last Name</label>
+        </div>
+    </div>
+    <div class="row-2">
+        <div class="input-wrap">
+            <input ng-model="mainInfo.address1" class="input" type="text" placeholder="Address">
+            <label>Address</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="mainInfo.contact1" class="input" type="text" placeholder="Phone Number">
+            <label>Phone Number</label>
+        </div>
+    </div>
+    <div class="row-3">
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="mainInfo.businessChannel" aria-placeholder="Business Channel">
+                <md-option value="social">Social</md-option>
+            </md-select>
+            <label>Business Channel</label>
+        </div>
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="mainInfo.serviceArea" aria-placeholder="Service Area">
+                <md-option value="area">Area</md-option>
+            </md-select>
+            <label>Service Area</label>
+        </div>
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="mainInfo.branch" aria-placeholder="Branch">
+                <md-option value="branch">Branch</md-option>
+            </md-select>
+            <label>Branch</label>
+        </div>
+    </div>
+
+    <div class="row-3">
+        <div ng-attr-data-uploaded="{{mainInfo.nicFront.length > 0 ? 'true' : 'false'}}" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" files="mainInfo" variable="nicFront" data-max-file-size="50">
+            <input style="display: none;" type="file" name="image" id="LeadsBasicInfoNICFrontDropDownImage" accept="image/png, image/jpeg, image/gif" files="mainInfo" variable="nicFront" file-change="image/png, image/jpeg, image/gif" >
+            <span class="material-icons">description</span>
+            <div class="texts">
+                <p class="title">NIC Front</p>
+                <span class="text">Drag or browse file to upload (max. 50mb)</span>
+            </div>
+            <label class="browse" for="LeadsBasicInfoNICFrontDropDownImage">Browse</label>
+        </div>
+        <div ng-attr-data-uploaded="{{mainInfo.nicBack.length > 0 ? 'true' : 'false'}}" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" files="mainInfo" variable="nicBack" data-max-file-size="50">
+            <input style="display: none;" type="file" name="image" id="LeadsBasicInfoNICBackDropDownImage" accept="image/png, image/jpeg, image/gif" files="mainInfo" variable="nicBack" file-change="image/png, image/jpeg, image/gif" >
+            <span class="material-icons">description</span>
+            <div class="texts">
+                <p class="title">NIC Back</p>
+                <span class="text">Drag or browse file to upload (max. 50mb)</span>
+            </div>
+            <label class="browse" for="LeadsBasicInfoNICBackDropDownImage">Browse</label>
+        </div>
+        <div ng-attr-data-uploaded="{{mainInfo.businessCard.length > 0 ? 'true' : 'false'}}" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" files="mainInfo" variable="businessCard" data-max-file-size="50">
+            <input style="display: none;" type="file" name="image" id="LeadsBasicInfoBusinessCardDropDownImage" accept="image/png, image/jpeg, image/gif" files="mainInfo" variable="businessCard" file-change="image/png, image/jpeg, image/gif" >
+            <span class="material-icons">description</span>
+            <div class="texts">
+                <p class="title">Business Card</p>
+                <span class="text">Drag or browse file to upload (max. 50mb)</span>
+            </div>
+            <label class="browse" for="LeadsBasicInfoBusinessCardDropDownImage">Browse</label>
+        </div>
+    </div>
+</md-content>

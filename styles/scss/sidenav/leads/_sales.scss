@@ -1,0 +1,66 @@
+#LeadManagement-sales-manage {
+    .social-section {
+        margin-top: 10px;
+        max-width: 80%;
+        justify-content: space-between;
+    }
+
+    .content-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow-y: visible;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        
+        .inputs-wrap{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            &.row {
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 15px;
+
+                .input-wrap{
+                    max-width: 47%;
+                    width: 100%;
+                }
+            }
+
+        }
+
+        .radio-wrap{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    }
+
+    .buttons-wrap{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    #LeadManagement-sales-manage {
+        .content{
+            .inputs-wrap{
+                &.row {
+                    .input-wrap{
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

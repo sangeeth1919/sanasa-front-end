@@ -1,0 +1,42 @@
+<md-content class="md-padding">
+
+    <div class="col-2">
+        <div class="col">
+            <div class="title-wrap">
+                <p class="main-title">Client’s Income</p>
+            </div>
+            <div class="item">
+                <p class="title">Fixed Income</p>
+                <p class="value">{{analysis.client.fixedIncome}}</p>
+            </div>
+            <div class="item">
+                <p class="title">Other Income</p>
+                <p class="value">{{analysis.client.otherIncome}}</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="title-wrap">
+                <p class="main-title">Spouse’s Income</p>
+            </div>
+            <div class="item">
+                <p class="title">Fixed Income</p>
+                <p class="value">{{analysis.spouse.fixedIncome}}</p>
+            </div>
+            <div class="item">
+                <p class="title">Other Income</p>
+                <p class="value">{{analysis.spouse.otherIncome}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="totals-wrap">
+        <div class="total-wrap">
+            <p class="title">Total Family Income</p>
+            <p class="price"><span class="currency">LKR</span> {{analysisFamilyIncome}}</p>
+        </div>
+        <div class="total-wrap">
+            <p class="title">Total Family Annual Income</p>
+            <p class="price"><span class="currency">LKR</span> {{analysisFamilyIncome * 12}}</p>
+        </div>
+    </div>
+</md-content>

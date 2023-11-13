@@ -1,0 +1,51 @@
+#leadsManagement-leads {
+    .buttons-wrap {
+        padding-top: 20px;
+    }
+
+    .content {
+        .title {
+            margin-bottom: 30px;
+        }
+
+        .info-wrap {
+            height: max-content;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 30px;
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .title {
+                    color: $gray2;
+                    margin-bottom: 0;
+                }
+
+                .value {
+                    font-weight: 500;
+                    color: $darkBlue;
+                }
+            }
+        }
+    }
+
+    .buttons-wrap{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+@import './leads/sales';
+@import './leads/assign';
+@import './leads/interview';
+@import './leads/quotation';
+@import './leads/analysis';
+@import './leads/personal';
+@import './leads/personalDisplay';
+@import './leads/proposal';
+@import './leads/policy';
+@import './leads/renewal';

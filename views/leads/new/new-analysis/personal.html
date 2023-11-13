@@ -1,0 +1,85 @@
+<md-content class="md-padding">
+    <div class="row">
+        <div class="cards-wrap">
+            <div ng-if="!!analysis.client.fName" class="card" ng-click="openSideNav('leads-management-analysis-personal-nondependant-display', analysis.client, 'personalData', 'client')">
+                <div ng-if="!analysis.client.images[0]" class="image">
+                    <span class="nameLetter">{{ analysis.client.fName | extractFirstLetter}}</span>
+                </div>
+                <img ng-if="!!analysis.client.images[0]" src="{{analysis.client.images[0].file}}" alt="Profile" class="image">
+        
+                <div class="text-wrap">
+                    <h4 class="name">{{analysis.client.fName}} {{analysis.client.lName}}</h4>
+                    <p class="role">Client</p>
+                </div>
+            </div>
+            <div ng-if="!analysis.client.fName" class="card" ng-click="openSideNav('leads-management-analysis-personal-nondependant', {images: []}, 'personalData', 'client')">
+                <img src="public/images/profile.png" alt="Profile" class="image">
+        
+                <p class="text">Add Client</p>
+    
+                <span class="material-icons add-icon">
+                    add
+                </span>
+            </div>
+        </div>
+        
+        <div class="line-wrap">
+            <div class="line"></div>
+        </div>
+
+        <div class="cards-wrap">
+            <div ng-if="!!analysis.spouse.fName" class="card" ng-click="openSideNav('leads-management-analysis-personal-nondependant-display', analysis.spouse, 'personalData', 'spouse')">
+                <div ng-if="!analysis.spouse.images[0]" class="image">
+                    <span class="nameLetter">{{ analysis.spouse.fName | extractFirstLetter }}</span>
+                </div>
+                <img ng-if="!!analysis.spouse.images[0]" src="{{analysis.spouse.images[0].file}}" alt="Profile" class="image">
+        
+                <div class="text-wrap">
+                    <h4 class="name">{{analysis.spouse.fName}} {{analysis.spouse.lname}}</h4>
+                    <p class="role">Spouse</p>
+                </div>
+            </div>
+            <div ng-if="!analysis.spouse.fName" class="card" ng-click="openSideNav('leads-management-analysis-personal-nondependant', {images: []}, 'personalData', 'spouse')">
+                <img src="public/images/profile.png" alt="Profile" class="image">
+        
+                <p class="text">Add Spouse</p>
+    
+                <span class="material-icons add-icon">
+                    add
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="line-wrap vertical">
+        <div class="line"></div>
+    </div>
+    
+    <div class="grid">
+        <div class="cards-wrap" ng-repeat="dependant in analysis.dependants">
+            <div class="card" ng-click="openSideNav('leads-management-analysis-personal-dependant-display', dependant, 'personalData', 'dependants')" >
+                <div ng-if="!dependant.images[0]" class="image">
+                    <span class="nameLetter">{{ dependant.fname | extractFirstLetter }}</span>
+                </div>
+                <img ng-if="!!dependant.images[0]" src="{{dependant.images[0].file}}" alt="Profile" class="image">
+        
+                <div class="text-wrap">
+                    <h4 class="name">{{dependant.name}}</h4>
+                    <p class="role">Child / Dependant</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-wrap">
+            <div class="card" ng-click="openSideNav('leads-management-analysis-personal-dependant', {images: []}, 'personalData', 'dependants')">
+                <img src="public/images/profile.png" alt="Profile" class="image">
+        
+                <p class="text">Add Child or a Dependant</p>
+    
+                <span class="material-icons add-icon">
+                    add
+                </span>
+            </div>
+        </div>
+    </div>
+</md-content>

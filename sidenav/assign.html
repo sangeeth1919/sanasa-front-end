@@ -1,0 +1,62 @@
+<md-sidenav class="md-sidenav-right md-padding" md-component-id="leads-management-assign-leads" md-whiteframe="4"
+    md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('leads-management-assign-leads')" class="md-icon-button"
+                aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+
+        <div class="section">
+            <h3 class="title">Assign Lead To Agent</h3>
+            <p class="desc">{{lead.id}}</p>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content-wrap" layout-margin="">
+        <div class="content">
+            <h4 class="title">Service Area</h4>
+
+            <div class="input-wrap dropdown">
+                <md-select ng-disabled="!!assign.id" name="type" ng-model="assign.area">
+                    <md-option value="Homagama">Homagama</md-option>
+                    <md-option value="Maharagama">Maharagama</md-option>
+                    <md-option value="Nugegoda">Nugegoda</md-option>
+                </md-select>
+                <label>Area</label>
+            </div>
+            <div class="input-wrap dropdown">
+                <md-select name="type" ng-model="assign.assignedTo">
+                    <md-option value="test user">User</md-option>
+                    <md-option value="test user 1">User 1</md-option>
+                    <md-option value="test user 2">User 2</md-option>
+                </md-select>
+                <label>Assigned To</label>
+            </div>
+        </div>
+        
+        <div class="content leads">
+            <h4 class="title">Leads</h4>
+            
+            <div class="leads">
+                <div ng-attr-data-selected="{{checkSelectedLead(lead.id)}}" ng-click="manageAssignLead(lead.id)" ng-if="!lead.assignedTo || lead.assignedTo == assign.id" class="lead" ng-repeat="lead in leads">
+                    <div class="top-wrap">
+                        <h4 class="id">{{lead.displayId}}</h4>
+                        <!-- <md-button ng-click="handleOnRemoveLead(lead.id)" class="md-icon-button md-primary">
+                            <md-icon ng-bind="'close'"></md-icon>
+                        </md-button> -->
+                    </div>
+                    <p class="text">{{lead.fName}} {{lead.lName}}</p>
+                    <p class="text">{{lead.contact1}}</p>
+                </div>
+            </div>
+        </div>
+    </md-content>
+
+    <div class="buttons-wrap">
+        <md-button ng-click="saveAssignLead()" class="md-primary button bg-blue md-raised">Save</md-button>
+    </div>
+
+</md-sidenav>

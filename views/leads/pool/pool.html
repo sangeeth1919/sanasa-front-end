@@ -1,0 +1,16 @@
+<div id="leadsManagement-pool" class="container" ng-controller="LeadsManagementPoolController">
+    <div class="tabs-section">
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Leads">
+                    <div class="tab-div" id="leads" ng-include="'views/leads/pool/leads.html'"></div>
+                </md-tab>
+                <md-tab label="Referral Leads">
+                    <div class="tab-div" id="reffereal" ng-include="'views/leads/pool/referral.html'"></div>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+
+    <section id="leadsManagement-leads" class="side-nav" ng-include="'sidenav/leads.html'" ></section>
+</div>

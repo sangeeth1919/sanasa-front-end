@@ -1,0 +1,48 @@
+<div id="giftDistribution" class="container" ng-controller="giftDistributionController">
+    <div class="container-top">
+        <div class="section">
+            <h2 class="title">Gift Distribution</h2>
+            <p class="last-update">Last added {{getLastCreatedAt(gifts) | lastUpdated}}</p>
+        </div>
+        <div class="section">
+            <div class="search-input-wrap">
+                <input ng-model="searchTxT" type="text" class="input" placeholder="Search ...">
+            </div>
+
+            <md-button ng-click="openSideNav('campaign-management-gift-distribution', {})" class="md-primary md-raised button bg-blue">Add Winner</md-button>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <table ng-table="GiftDistribution" class="table" show-filter="false">
+            <tr ng-repeat="item in $data | filter : searchTxT" class="table-row">
+                <td>
+                    <md-checkbox aria-label={{item.id}}></md-checkbox>
+                </td>
+                <td title="'Campaign ID'" filter="{ displayId: 'text'}" sortable="'displayId'">
+                    <h4 class="color-dark-blue">{{item.displayId}}</h4>
+                </td>
+                <td title="'Winner Name'" filter="{ winner: 'text'}" sortable="'winner'">
+                    {{item.winner}}
+                </td>
+                <td title="'Date'" filter="{ date: 'text'}" sortable="'date'">
+                    {{item.date}}
+                </td>
+                <td title="'Created By'" filter="{ createdBy: 'text'}" sortable="'createdBy'">
+                    {{item.createdBy}}
+                </td>
+                <td title="'Approved By'" filter="{ approvedBy: 'text'}" sortable="'approvedBy'">
+                    {{item.approvedBy}}
+                </td>
+                <td>
+                    <md-button ng-click="openSideNav('campaign-management-gift-distribution', item)" class="md-primary button">Manage</md-button>
+                </td>
+                <td>
+                    <md-button ng-click="removeGift(item.id)" class="md-secondary button">Remove</md-button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <section id="giftDistribution-gift" class="side-nav" ng-include="'sidenav/campaign/gift.html'" ></section>
+</div>

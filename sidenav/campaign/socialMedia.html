@@ -1,0 +1,138 @@
+<md-sidenav class="md-sidenav-right md-padding" md-component-id="campaign-management-social-media" md-whiteframe="4"
+    md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('campaign-management-social-media')" class="md-icon-button"
+                aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+
+        <div class="section">
+            <h3 ng-if="socialMedia.name" class="title">{{socialMedia.name}}</h3>
+            <h3 ng-if="!socialMedia.name" class="title">Add Notification</h3>
+            <p ng-if="socialMedia.from && socialMedia.to" class="desc">{{socialMedia.from}} - {{socialMedia.to}}</p>
+        </div>
+        <div class="social-section">
+            <a href="{{social.link}}" target="_blank" class="social-wrap" ng-repeat="social in socials">
+                <span class="iconify" data-icon="mdi:{{social.icon}}"></span>
+            </a>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content-wrap" layout-margin="">
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Description</h4>
+            </div>
+
+            <div class="inputs-wrap">
+                <div class="input-wrap dropdown">
+                    <md-select name="type" ng-model="socialMedia.campaignId">
+                        <md-select-header>
+                            <input style="width: 88%;" ng-model="searchTxt" class="input select-header-input" onkeydown="event.stopPropagation()">
+                        </md-select-header>
+                        <md-option value="{{campaign.id}}" ng-repeat="campaign in campaigns | filter : searchTxt">{{campaign.name}}</md-option>
+                    </md-select>
+                    <label>Campaign</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="socialMedia.title" class="input" type="text" placeholder="Title">
+                    <label>Title</label>
+                </div>
+                <div class="input-wrap">
+                    <textarea ng-model="socialMedia.message" class="input" type="text" placeholder="Message">{{socialMedia.message}}</textarea>
+                    <label>Message</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="socialMedia.link" class="input" type="text" placeholder="Link">
+                    <label>Link</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Campaign Date Time</h4>
+            </div>
+
+            <div class="md-dense checkbox-wrap" layout="row">
+                <md-checkbox class="md-primary" ng-model="socialMedia.scheduled">
+                    Scheduled
+                </md-checkbox>
+                <md-checkbox class="md-primary" ng-model="socialMedia.published">
+                    Published
+                </md-checkbox>
+            </div>
+
+            <div class="inputs-wrap row">
+                <div class="input-wrap">
+                    <input ng-model="socialMedia.dateFrom" class="input" type="date" placeholder="Date From" date-input>
+                    <label>Date From</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="socialMedia.timeFrom" class="input" type="time" placeholder="Time From" date-input>
+                    <label>Time From</label>
+                </div>
+            </div>
+            <div class="inputs-wrap row">
+                <div class="input-wrap">
+                    <input ng-model="socialMedia.dateTo" class="input" type="date" placeholder="Date To" date-input>
+                    <label>Date To</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="socialMedia.timeTo" class="input" type="time" placeholder="Time To" date-input>
+                    <label>Time To</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Status</h4>
+            </div>
+
+            <md-radio-group class="radio-wrap" ng-model="socialMedia.status" aria-labelledby="Status">
+                <md-radio-button class="md-primary" value="Not Started">Not Started</md-radio-button>
+                <md-radio-button class="md-primary" value="In Progress">In Progress</md-radio-button>
+                <md-radio-button class="md-primary" value="Completed">Completed</md-radio-button>
+            </md-radio-group>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Art work</h4>
+            </div>
+            <div ng-if="socialMedia.artwork.length == 0"  class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" files="socialMedia" variable="artwork" data-max-file-size="50">
+                <input style="display: none;" type="file" name="image" id="artworkDropDownImage" accept="image/png, image/jpeg, image/gif" files="socialMedia" variable="artwork" file-change="image/png, image/jpeg, image/gif" >
+                <span class="material-icons">insert_photo</span>
+                <span class="text">Drag or browse file to upload (max. 50mb)</span>
+                <label class="browse" for="artworkDropDownImage">Browse</label>
+            </div>
+            <div ng-if="socialMedia.artwork.length > 0" class="image-wrap">
+                <img src="{{socialMedia.artwork[0].file}}" alt="Art work" class="image">
+
+                <div class="info">
+                    <p class="title">{{socialMedia.artwork[0].name}}</p>
+                    <md-button file-download file-name="socialMedia.artwork[0].name" file-data="socialMedia.artwork[0].file" class="md-icon-button">
+                        <md-icon>
+                            <span class="iconify" data-icon="akar-icons:download"></span>
+                        </md-icon>
+                    </md-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="input-wrap">
+                <textarea ng-model="socialMedia.note" class="input" type="text" placeholder="Note">{{socialMedia.note}}</textarea>
+                <label>Note</label>
+            </div>
+        </div>
+    </md-content>
+
+    <div class="buttons-wrap">
+        <md-button ng-click="saveSocialMedia()" class="md-primary md-raised button bg-blue lg">Send</md-button>
+        <md-button ng-click="closeSideNav('campaign-management-social-media')"
+            class="md-primary button btn-outlined lg">Cancel</md-button>
+    </div>
+
+</md-sidenav>

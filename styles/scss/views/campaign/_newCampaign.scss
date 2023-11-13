@@ -1,0 +1,139 @@
+#newCampaign {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    md-tab-item {
+        user-select: none;
+        color: $gray1;
+
+        &.md-active {
+            background-color: #EEF3FF;
+            color: $darkBlue;
+        }
+    }
+
+    md-ink-bar {
+        color: $blue;
+        background-color: $blue;
+    }
+
+    md-content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        gap: 30px;
+        min-height: 50vh;
+        background-color: transparent;
+    }
+
+    .top-total{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px 0 20px 0;
+        font-weight: bold;
+        border-bottom: 2px solid $gray3;
+
+        .value {
+            span {
+                font-size: 0.9rem;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .button-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        border-top: 2px solid $gray3;
+        gap: 20px;
+        padding: 10px 0 10px 0;
+        width: 100%;
+    }
+
+    .row-3 {
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        gap: 20px;
+        justify-content: space-between;
+        width: 100%;
+
+        .input-wrap {
+            max-width: 600px;
+        }
+    }
+
+    .row-date {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .input-wrap {
+            width: 100%;
+            max-width: 400px;
+        }
+    }
+
+    .col-2 {
+        display: grid;
+        grid-template-columns: 45% 45%;
+        gap: 50px;
+        max-width: 1360px;
+        row-gap: 30px;
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 5px;
+            
+            .content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .input {
+                padding: 10px;
+            }
+        }
+    }
+}
+
+@import './new/mainInfo';
+@import './new/fb';
+@import './new/otherArrangements';
+@import './new/summary';
+
+@media screen and (max-width: 960px) {
+    #newCampaign {
+        .row-3 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col-2 {
+            .item {
+                .content {
+                    align-items: flex-start;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 770px) {
+    #newCampaign {
+        .col-2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}

@@ -1,0 +1,255 @@
+$socialSize: 40px;
+
+#campaignManagement {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 50px;
+
+    .top-cards-section{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 270px;
+            min-height: 160px;
+            border-radius: 5px;
+            border: 2px solid $gray3;
+            padding: 15px;
+
+            .title{
+                font-weight: 500;
+            }
+
+            .wrap{
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+
+                .value {
+                    font-size: 3.2rem;
+                }
+    
+                .text {
+                    color: $gray1;
+                }
+            }
+
+            .progress-wrap{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                height: 100%;
+
+                md-progress-circular svg path { 
+                    stroke: $blue; 
+                    stroke-width: 7;
+                    stroke-linecap: round;
+                }
+
+                .progress, .progress-value-wrap{
+                    position: absolute;   
+                }
+
+                .progress-value-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 500;
+                    gap: 5px;
+
+                    .value{
+                        font-size: 1.5rem;
+
+                        .precentage {
+                            font-size: 0.9rem;
+                        }
+                    }
+
+                    .completed {
+
+                        font-size: 0.9rem;
+                        color: $gray1;
+                    }
+                }
+            }
+        }
+    }
+
+    .row-card-section{
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+        width: 100%;
+
+        .l-card{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-height: 350px;
+            
+            .box-border{
+                border-radius: 5px;
+                border: 2px solid $gray3;
+                padding: 15px;
+                height: 100%;
+            }
+
+            .title-wrap{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                align-items: center;
+                padding: 10px 0 10px 0;
+                min-height: 70px;
+            }
+            
+            .content-wrap{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                justify-content: flex-start;
+                height: 300px;
+                overflow-y: auto;
+
+                .content-row{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    padding: 10px;
+                    border-bottom: 2px solid $gray3;
+                    min-height: 80px;
+
+                    &:last-child {
+                        border-bottom: 2px solid transparent;
+                    }
+
+                    .column {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .city {
+                            font-size: 0.9rem;
+                            color: $gray1;
+                        }
+                    }
+                }
+            }
+
+            .social-wrap{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                padding-top: 20px;
+                row-gap: 40px;
+
+                .link{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 15px;
+                    width: 100%;
+                    max-width: 130px;
+
+                    .image {
+                        object-fit: contain;
+                        width: $socialSize;
+                        height: $socialSize;
+                    }
+                }
+            }
+
+            .calendar-wrap {
+                .event-calendar {
+                    .color-calendar {
+                        width: 100%;
+
+                        .calendar__header, .calendar__weekdays, .calendar__days{
+                            grid-template-columns: repeat(7, minmax(20px, 100%));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .table-wrap {
+        .table {
+            .progress{
+                width: 100%;
+                min-width: 100px;
+                border-radius: 5px;
+                padding: 5px 10px 5px 10px;
+                text-transform: capitalize;
+                border: 2px solid #F8DE1D;
+                background-color: #FFFCE9;
+                color: #F8DE1D;
+
+                &[data-type="cancelled"] {
+                    background-color: #FCFDFF;
+                    border-color: #DBDEF9;
+                    color: #B5BFE4;
+                }
+
+                &[data-type="ongoing"] {
+                    background-color: #F3FFFC;
+                    border-color: #58F4D0;
+                    color: #14BF97;
+                }
+            }  
+        }
+    }
+}
+
+@media screen and (max-width: 770px) {
+    #campaignManagement {
+        .top-cards-section{
+            .card {
+                max-width: 100%;
+            }
+        }
+
+        .row-card-section {
+            flex-direction: column;
+
+            .l-card {
+                .social-wrap{
+                    .link {
+                        max-width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    #campaignManagement {
+        .row-card-section {
+            flex-direction: column;
+
+            .l-card {
+                .social-wrap{
+                    .link {
+                        max-width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import './campaign/newCampaign';
+@import './campaign/participantsManage';
+@import './campaign/followUpNotifications';
+@import './campaign/socialMedia';
+@import './campaign/budgets';

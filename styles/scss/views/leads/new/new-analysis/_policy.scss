@@ -1,0 +1,131 @@
+#newLeads-analysis-policy {
+
+    md-content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 40px;
+        border-bottom: 2px solid $gray3;
+
+        .grid-content{
+            display: grid;
+            grid-template-columns: 47% 47%;
+            gap: 20px;
+
+            .grid-item{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .blue-cards-wrap {
+                .blue-card {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    background-color: #EEF3FF40;
+                    transition: all 0.4s ease;
+                    cursor: pointer;
+                    
+                    &[data-active="true"] {
+                        background-color: #EEF3FF;
+                    }
+
+                    .remove {
+                        text-decoration: underline;
+                        color: $blue;
+                        font-size: 0.8rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .proposed-plan-details{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .title-wrap, .data-wrap {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+        }
+
+        .table-wrap{
+            .table-row {
+                &.total {
+                    td {
+                        border-top: 2px solid $gray3;
+                    }
+                }
+            }
+        }
+        
+        .signature-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .top {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .show-signature{
+                position: relative;
+                border: 2px solid $gray3;
+                border-radius: 5px;
+                height: 250px;
+
+                .image {
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .remove {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background-color: $white;
+
+                    md-icon {
+                        color: $red;
+                    }
+                }
+            }
+
+            .dropzone {
+                display: flex;
+                flex-direction: column;
+                height: 250px;
+                gap: 10px;
+                padding: 20px;
+
+                .text {
+                    font-size: 0.8rem;
+                }
+
+                .labels {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                }
+            }
+        }
+    }
+}

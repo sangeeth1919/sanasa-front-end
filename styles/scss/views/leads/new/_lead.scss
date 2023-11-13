@@ -1,0 +1,16 @@
+#newLeads-lead {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 100px;
+
+        .section {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+@import './new-leads/basicInfo';
+@import './new-leads/personalInfo';

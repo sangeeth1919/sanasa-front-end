@@ -1,0 +1,40 @@
+<div id="followUpNotificationsCampaign" class="container" ng-controller="followUpNotificationsCampaignController">
+    <div class="container-top">
+        <div class="section">
+            <h2 class="title">Campaigns Follow Up Notifications</h2>
+            <p ng-if="tabIndex == 0" class="last-update">Last added {{getLastCreatedAt(sms) | lastUpdated}}</p>
+            <p ng-if="tabIndex == 1" class="last-update">Last added {{getLastCreatedAt(notifications) | lastUpdated}}</p>
+            <p ng-if="tabIndex == 2" class="last-update">Last added {{getLastCreatedAt(emails) | lastUpdated}}</p>
+            <p ng-if="tabIndex == 3" class="last-update">Last added {{getLastCreatedAt(e_notice) | lastUpdated}}</p>
+        </div>
+
+        <div class="section">
+            <div class="search-input-wrap">
+                <input ng-model="searchTxT" type="text" class="input" placeholder="Search ...">
+            </div>
+            
+            <md-button ng-click="openSideNav('campaign-management-followup-notifications', { recipients: [] })" class="md-primary md-raised button bg-blue">Add Notification</md-button>
+        </div>
+    </div>
+
+    <div class="tabs-section">
+        <md-content>
+            <md-tabs md-selected="tabIndex" md-dynamic-height md-border-bottom md-stretch-tabs="always">
+                <md-tab label="Sms">
+                    <div class="tab-div" id="followup-notifications-sms" ng-include="'views/campaign/notifications/sms.html'"></div>
+                </md-tab>
+                <md-tab label="Notifications">
+                    <div class="tab-div" id="followup-notifications-notifications" ng-include="'views/campaign/notifications/notifications.html'"></div>
+                </md-tab>
+                <md-tab label="Emails">
+                    <div class="tab-div" id="followup-notifications-emails" ng-include="'views/campaign/notifications/emails.html'"></div>
+                </md-tab>
+                <md-tab label="E-Notice">
+                    <div class="tab-div" id="followup-notifications-enotices" ng-include="'views/campaign/notifications/e-notice.html'"></div>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+
+    <section id="followUpNotificationsCampaign-manage" class="side-nav" ng-include="'sidenav/campaign/followUpNotification.html'" ></section>
+</div>

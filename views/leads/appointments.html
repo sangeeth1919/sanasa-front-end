@@ -1,0 +1,41 @@
+<div class="container" ng-controller="leadsAppointmentsController" >
+    <div class="container-top">
+        <div class="section">
+            <h2 class="title">Appointments</h2>
+            <p class="last-update">Last added 2 days ago</p>
+        </div>
+
+        <div class="section">
+            <md-button ng-click="showAppointmentManage($event, {})" class="md-raised button bg-blue lg">New Appointments</md-button>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <table ng-table="Appointments" class="table" show-filter="false">
+            <tr ng-repeat="item in $data" class="table-row">
+                <td title="'Appointment ID'" filter="{ displayId: 'text'}" sortable="'displayId'">
+                    <h4 class="color-dark-blue">{{item.displayId}}</h4>
+                </td>
+                <td title="'Client ID'" filter="{ clientId: 'text'}" sortable="'clientId'">
+                    {{item.clientId}}
+                </td>
+                <td title="'Appointment Date & Time'" filter="{ appointmentDateTime: 'text'}" sortable="'appointmentDateTime'">
+                    {{item.dateFrom | formatDate}} - {{item.timeFrom | formatTime}}
+                </td>
+                <td title="'Created by'" filter="{ createdBy: 'text'}" sortable="'createdBy'">
+                    {{item.createdBy}}
+                </td>
+                <td title="'Appointment Address'" filter="{ appointmentLocation: 'text'}" sortable="'appointmentLocation'">
+                   <a ng-if="!!isValidURL(item.location)" class="link-blue" target="_blank" href="{{item.location}}">{{item.location}}</a>
+                   <span ng-if="!isValidURL(item.location)">{{item.location}}</span>
+                </td>
+                <td>
+                    <md-button ng-click="showAppointmentManage($event, item)" class="md-primary button">Manage</md-button>
+                </td>
+                <td>
+                    <md-button ng-click="deleteAppointment(item.id)" class="md-secondary button">Remove</md-button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

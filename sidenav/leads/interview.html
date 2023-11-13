@@ -1,0 +1,157 @@
+<md-sidenav class="md-sidenav-right md-padding" md-component-id="leads-management-interview" md-whiteframe="4"
+    md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('leads-management-interview')" class="md-icon-button"
+                aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+        
+        <div class="section">
+            <h3 ng-if="!interview.name" class="title">New Follow Up Interview</h3>
+            <h3 ng-if="!!interview.name" class="title">{{interview.name}}</h3>
+            <p ng-if="!!interview.displayId" class="desc">{{interview.displayId}}</p>
+        </div>
+        <div class="social-section">
+            <a href="{{social.link}}" target="_blank" class="social-wrap" ng-repeat="social in socials">
+                <span class="iconify" data-icon="mdi:{{social.icon}}"></span>
+            </a>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content-wrap" layout-margin="">
+        
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Lead</h4>
+            </div>
+
+            <div class="inputs-wrap">
+                <div class="input-wrap dropdown">
+                    <md-select name="type" ng-model="interview.selectedLeadId">
+                        <md-select-header>
+                            <input style="width: 88%;" ng-model="searchLeadTxt" class="input select-header-input"
+                                onkeydown="event.stopPropagation()">
+                        </md-select-header>
+                        <md-option value="{{lead.id}}" ng-repeat="lead in leads | filter : searchLeadTxt">
+                            {{lead.fName}} {{lead.lName}}
+                        </md-option>
+                    </md-select>
+                    <label>Lead</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Client</h4>
+            </div>
+
+            <div class="inputs-wrap">
+                <div class="input-wrap dropdown">
+                    <md-select name="type" ng-model="interview.clientId">
+                        <md-select-header>
+                            <input style="width: 88%;" ng-model="searchClientTxt" class="input select-header-input"
+                                onkeydown="event.stopPropagation()">
+                        </md-select-header>
+                        <md-option value="{{client.id}}" ng-repeat="client in clients | filter : searchClientTxt">
+                            {{client.fName}} {{client.lName}}
+                        </md-option>
+                    </md-select>
+                    <label>Client</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Schedule</h4>
+            </div>
+
+            <div class="inputs-wrap row">
+                <div class="input-wrap">
+                    <input ng-model="interview.scheduledDate" class="input" type="date" placeholder="Date">
+                    <label>Date</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="interview.scheduledTime" class="input" type="time" placeholder="Time">
+                    <label>Time</label>
+                </div>
+            </div>
+        </div>
+        <div ng-if="!!interview.id" class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Re Schedule</h4>
+            </div>
+
+            <div class="inputs-wrap row">
+                <div class="input-wrap">
+                    <input ng-model="interview.reScheduledDate" class="input" type="date" placeholder="Date">
+                    <label>Date</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="interview.reScheduledTime" class="input" type="time" placeholder="Time">
+                    <label>Time</label>
+                </div>
+            </div>
+        </div>
+        <div ng-if="!!interview.id" class="content">
+            <div class="input-wrap">
+                <textarea ng-model="interview.reason" class="input" placeholder="Reason">{{interview.reason}}</textarea>
+                <label>Reason</label>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap">
+                <h4 class="title">Interview Location</h4>
+            </div>
+            <div class="inputs-wrap">
+                <div class="input-wrap">
+                    <input ng-model="interview.location" class="input" type="text" placeholder="Interview Location">
+                    <label>Interview Location</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="inputs-wrap row">
+                <div class="input-wrap">
+                    <input ng-model="interview.locationLat" class="input" type="text" placeholder="Location Longitude">
+                    <label>Location Longitude</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="interview.locationLng" class="input" type="text" placeholder="Location Latitude">
+                    <label>Location Latitude</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Status</h4>
+            </div>
+
+            <md-radio-group class="radio-wrap" ng-model="interview.status" aria-labelledby="Status">
+                <md-radio-button class="md-primary" value="Not Started">Not Started</md-radio-button>
+                <md-radio-button class="md-primary" value="In Progress">In Progress</md-radio-button>
+                <md-radio-button class="md-primary" value="Completed">Completed</md-radio-button>
+              </md-radio-group>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Priority</h4>
+            </div>
+
+            <md-radio-group class="radio-wrap" ng-model="interview.priority" aria-labelledby="Priority">
+                <md-radio-button class="md-primary" value="Low">Low</md-radio-button>
+                <md-radio-button class="md-primary" value="Normal">Normal</md-radio-button>
+                <md-radio-button class="md-primary" value="High">High</md-radio-button>
+                <md-radio-button class="md-primary" value="Critical">Critical</md-radio-button>
+              </md-radio-group>
+        </div>
+    </md-content>
+
+    <div class="buttons-wrap">
+        <md-button ng-click="saveInterview('leads-management-interview')" class="md-primary md-raised button bg-blue lg" >Send</md-button>
+        <md-button ng-click="closeSideNav('leads-management-interview')" class="md-primary button btn-outlined lg" >Cancel</md-button>
+    </div>
+
+</md-sidenav>

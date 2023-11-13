@@ -1,0 +1,47 @@
+<md-content class="md-padding main-content-wrap">
+    <div class="row-3">
+        <div class="input-wrap">
+            <input ng-model="mainInfo.otherName" class="input" type="text" placeholder="Other Name">
+            <label>Other Name</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="mainInfo.email" class="input" type="email" placeholder="Email Address">
+            <label>Email Address</label>
+        </div>
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="mainInfo.gender" aria-placeholder="Gender">
+                <md-option value="male">Male</md-option>
+                <md-option value="female">Female</md-option>
+                <md-option value="other">Other</md-option>
+            </md-select>
+            <label>Gender</label>
+        </div>
+    </div>
+    <div class="row-3">
+        <div class="input-wrap">
+            <input ng-model="mainInfo.dob" class="input" type="date" placeholder="Date of Birth" date-input>
+            <label>Date of Birth</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="mainInfo.occupation" class="input" type="text" placeholder="Occupation">
+            <label>Occupation</label>
+        </div>
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="mainInfo.civilStatus" aria-placeholder="Civil Status">
+                <md-option value="single">Single</md-option>
+                <md-option value="married">Married</md-option>
+            </md-select>
+            <label>Civil Status</label>
+        </div>
+    </div>
+    <div class="row-3">
+        <div class="input-wrap">
+            <input ng-model="mainInfo.country" class="input" type="text" placeholder="Country">
+            <label>Country</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="mainInfo.nationality" class="input" type="text" placeholder="Nationality">
+            <label>Nationality</label>
+        </div>
+    </div>
+</md-content>

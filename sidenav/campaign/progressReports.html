@@ -1,0 +1,158 @@
+<md-sidenav class="md-sidenav-right md-padding" md-component-id="campaign-management-progress-reports" md-whiteframe="4"
+    md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('campaign-management-progress-reports')" class="md-icon-button"
+                aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+
+        <div class="section">
+            <h3 class="title color-dark-blue">{{campaign.name}}</h3>
+            <p class="desc">{{campaign.displayId}}</p>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content-wrap" layout-margin="">
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Campaign Progress</h4>
+                <md-button ng-click="handleExpand('campaign')" class="md-icon-button">
+                    <md-icon class="expand_more" ng-class="expandState(expand.campaign)" ng-bind="'expand_more'" ></md-icon>
+                </md-button>
+            </div>
+
+            <div ng-class="expandState(expand.campaign)" class="info-wrap">
+                <div class="info">
+                    <p class="title">Campaign name</p>
+                    <p class="value">{{campaign.name}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Branch</p>
+                    <p class="value">{{campaign.branch}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Date From</p>
+                    <p class="value">{{campaign.dateFrom | formatDate}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Time From</p>
+                    <p class="value">{{campaign.timeFrom | formatTime}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Date To</p>
+                    <p class="value">{{campaign.dateTo | formatDate}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Time To</p>
+                    <p class="value">{{campaign.timeTo | formatTime}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Target Location</p>
+                    <a ng-if="isValidURL(campaign.locationMap)" target="_blank" href="{{campaign.locationMap}}" class="value link">location</a>
+                    <p ng-if="!isValidURL(campaign.locationMap)" class="value">{{campaign.locationMap}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Channel</p>
+                    <p class="value">{{campaign.channel}}</p>
+                </div>
+                <div ng-if="campaign.continues == 'true'" class="info">
+                    <p class="title">Continues Days</p>
+                    <p class="value">{{campaign.continuesDays}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap">
+                <h4 class="title">Campaign Criteria</h4>
+            </div>
+
+            <div class="info-wrap">
+                <div class="info">
+                    <p class="title">Expected Recruitment</p>
+                    <p class="value">{{criteria.recruitmentNum}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Type</p>
+                    <p class="value">{{criteria.type}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Expecting Leads</p>
+                    <p class="value">{{criteria.expectingLeads}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap">
+                <h4 class="title color-dark-blue">Campaign Reports</h4>
+            </div>
+
+            <div class="reports-wrap">
+                <!-- <md-button ng-click="showReport($event , 'winner.html')" class="button btn-outlined md-primary" >Winners Details Report</md-button> -->
+                <md-button ng-click="showReport($event , 'participants.html')" class="button btn-outlined md-primary" >Participants Details Report</md-button>
+                <!-- <md-button ng-click="showReport($event , 'utilizedExcessBudget.html')" class="button btn-outlined md-primary" >Utilized / Excess  Budget Details Report</md-button> -->
+                <!-- <md-button ng-click="showReport($event , 'awards.html')" class="button btn-outlined md-primary" >Awards and recognition Report</md-button> -->
+                <md-button ng-click="showReport($event , 'campaignEffective.html')" class="button btn-outlined md-primary" >Campaign Effectiveness Against Objectives</md-button>
+                <md-button ng-click="showReport($event , 'gift.html')" class="button btn-outlined md-primary" >Gift Distribution Schedule & Locations</md-button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap">
+                <h4 class="title color-dark-blue">Business Projection Report</h4>
+            </div>
+
+            <div class="info-wrap">
+                <div class="info">
+                    <p class="title">Criteria</p>
+                    <p class="value">{{progressReport.criteria}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Outcome</p>
+                    <p class="value">{{progressReport.outcome}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Expected Recruitment</p>
+                    <p class="value">{{progressReport.expectedRecruitment}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Outcome Percentage</p>
+                    <p class="value">{{progressReport.outcomePercentage}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap">
+                <h4 class="title color-dark-blue">Budget</h4>
+            </div>
+
+            <div class="info-wrap">
+                <div class="info">
+                    <p class="title">Utilized Budget</p>
+                    <p class="value">{{budgets.utilized}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Budget Exceeded</p>
+                    <p class="value">{{budgets.exceeded}}</p>
+                </div>
+                <div class="info">
+                    <p class="title">Total Spent</p>
+                    <p class="value">{{budgets.total}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="reports-wrap">
+                <md-button target="_blank" ng-href="{{report.file}}" class="button btn-outlined md-primary"
+                    ng-repeat="report in progressReport.budgetReports">{{report.name}}</md-button>
+            </div>
+        </div>
+        <div class="reports-wrap">
+               
+            <md-button ng-click="showReport($event , 'utilizedExcessBudget.html')" class="button btn-outlined md-primary" > Budget Details Report</md-button> 
+           
+        </div>
+    </md-content>
+
+</md-sidenav>

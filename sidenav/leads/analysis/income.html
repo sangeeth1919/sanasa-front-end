@@ -1,0 +1,65 @@
+<md-sidenav class="md-sidenav-right md-padding analysis-manage-sidebar" md-component-id="leads-management-analysis-income" md-whiteframe="4"
+    md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('leads-management-analysis-income')" class="md-icon-button"
+                aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+        
+        <div class="section">
+            <div class="image-section">
+                <div ng-if="!analysis.images[0]" class="image">
+                    <span class="nameLetter">{{'Jhone Doe' | extractFirstLetter}}</span>
+                </div>
+                <img ng-if="analysis.images[0]" src="{{analysis.images[0].file}}" alt="profile" class="image" />
+                <div class="text-wrap">
+                    <h3 class="title">Jhone Doe</h3>
+                    <p class="desc">SL00000001</p>
+                </div>
+            </div>
+        </div>
+        <div class="social-section">
+            <a href="{{social.link}}" target="_blank" class="social-wrap" ng-repeat="social in socials">
+                <span class="iconify" data-icon="mdi:{{social.icon}}"></span>
+            </a>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content-wrap" layout-margin="">
+        <div class="content">
+            <h3 class="title">Client’s Income</h3>
+            <div class="grid-content">
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="Fixed Income" ng-model="analysis.client.fixedIncome">
+                    <label>Fixed Income</label>
+                </div>
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="Fixed Income" ng-model="analysis.client.otherIncome">
+                    <label>Other Income</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h3 class="title">Spouse’s Income</h3>
+            <div class="grid-content">
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="Fixed Income" ng-model="analysis.spouse.fixedIncome">
+                    <label>Fixed Income</label>
+                </div>
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="Fixed Income" ng-model="analysis.spouse.otherIncome">
+                    <label>Other Income</label>
+                </div>
+            </div>
+        </div>
+    </md-content>
+
+    <div class="buttons-wrap">
+        <md-button ng-click="saveAnalysisIncome('leads-management-analysis-income')" class="md-primary md-raised button bg-blue lg" >Save</md-button>
+        <md-button ng-click="closeSideNav('leads-management-analysis-income')" class="md-primary button btn-outlined lg" >Cancel</md-button>
+    </div>
+
+</md-sidenav>

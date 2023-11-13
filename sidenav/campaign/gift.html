@@ -1,0 +1,84 @@
+<md-sidenav class="md-sidenav-right md-padding" md-component-id="campaign-management-gift-distribution"
+    md-whiteframe="4" md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('campaign-management-gift-distribution')" class="md-icon-button"
+                aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+
+        <div class="section">
+            <div ng-if="!gift.id" class="image-section">
+                <div class="text-wrap">
+                    <h3 class="title color-dark-blue">New Winner</h3>
+                    <p class="desc">Please fill all the fields below</p>
+                </div>
+            </div>
+            <div ng-if="!!gift.id" class="image-section">
+                <div ng-if="!gift.images[0]" class="image">
+                    <span class="nameLetter">{{gift.winner | extractFirstLetter}}</span>
+                </div>
+                <img ng-if="gift.images[0]" src="{{gift.images[0].file}}" alt="profile" class="image" />
+                <div class="text-wrap">
+                    <h3 class="title color-dark-blue">{{gift.winner}}</h3>
+                    <p class="desc">{{gift.id}}</p>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content" layout-margin="">
+        <h4 class="title color-dark-blue">Campaign Details</h4>
+
+        <div class="input-wrap dropdown">
+            <md-select name="type" ng-model="gift.campaignId">
+                <md-select-header>
+                    <input style="width: 88%;" ng-model="searchTxt" class="input select-header-input"
+                        onkeydown="event.stopPropagation()">
+                </md-select-header>
+                <md-option value="{{campaign.id}}" ng-repeat="campaign in campaigns | filter : searchTxt">
+                    {{campaign.name}}</md-option>
+            </md-select>
+            <label>Campaign</label>
+        </div>
+    </md-content>
+    <md-content class="content" layout-margin="">
+        <h4 class="title color-dark-blue">Winner Details</h4>
+
+        <div class="input-wrap">
+            <input ng-model="gift.nic" class="input" type="text" placeholder="NIC">
+            <label>NIC</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="gift.winner" class="input" type="text" placeholder="Winner Name">
+            <label>Winner Name</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="gift.address" class="input" type="text" placeholder="Address">
+            <label>Address</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="gift.contact" class="input" type="text" placeholder="Contact Number">
+            <label>Contact Number</label>
+        </div>
+        <div class="input-wrap">
+            <input ng-model="gift.gift" class="input" type="text" placeholder="Gift">
+            <label>Gift</label>
+        </div>
+        <div class="input-wrap">
+            <textarea ng-model="gift.message" class="input" type="text"
+                placeholder="Message">{{gift.message}}</textarea>
+            <label>Message</label>
+        </div>
+    </md-content>
+
+    <md-content>
+        <div class="button-wrap">
+            <md-button ng-click="saveGift()" class="button md-primary bg-blue">Send</md-button>
+            <md-button ng-click="closeSideNav('campaign-management-gift-distribution')" class="button btn-outlined lg">
+                Cancel</md-button>
+        </div>
+    </md-content>
+</md-sidenav>

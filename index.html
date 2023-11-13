@@ -1,0 +1,130 @@
+<html lang="en" ng-app="Surecore" ng-controller="SurecoreController" ng-cloak>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surecore</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="/public/images/logo.png">
+
+    <!-- angularjs -->
+    <script src="/app/libs/angular.min.js"></script>
+    <!-- angularjs routes -->
+    <script src="/app/libs/angular-route.min.js"></script>
+    <!-- angularjs animations -->
+    <script src="/app/libs/angular-animate.min.js"></script>
+
+    <!-- Angular Material CSS now available via Google CDN; version 1.2.1 used here -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.css">
+
+    <!-- google material ui icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- iconify -->
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+
+    <!-- ng input date -->
+    <script src="/app/libs/angular-input-date.js"></script>
+
+    <!-- color calendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/color-calendar/dist/css/theme-basic.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/color-calendar/dist/css/theme-glass.css" />
+    <script src="https://cdn.jsdelivr.net/npm/color-calendar/dist/bundle.min.js"></script>
+
+    <!-- ng table -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.js"></script>
+
+    <!-- signature pad -->
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+    <!-- chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+    <script src="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/0.10.2/angular-chart.js"></script> -->
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- js -->
+    <script src="/app/app.js"></script>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="/styles/index.css">
+
+</head>
+
+<body>
+    <header ng-include="'/layout/navbar.html'"></header>
+    <div id="main">
+        <header ng-include="'/layout/sideNavbar.html'"></header>
+        <main id="app" class="app" ng-view></main>
+    </div>
+
+    <!-- Angular Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-messages.min.js"></script>
+
+    <!-- Angular Material Javascript now available via Google CDN; version 1.2.1 used here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.js"></script>
+
+    <!-- moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
+
+    <!-- directives -->
+    <script src="/app/directives.js"></script>
+    <script src="/components/table/table.js"></script>
+    
+    <!-- filters -->
+    <script src="/app/filters.js"></script>
+
+    <!-- controllers -->
+
+    <!-- layout controllers -->
+    <script src="/controllers/layout/navbar.js"></script>
+    <script src="/controllers/layout/sideNavbar.js"></script>
+
+    <!-- view controllers -->
+
+    <!-- competition management -->
+    <script src="/controllers/views/competitionManagement.js"></script>
+
+    <!-- campaign management -->
+    <script src="/controllers/views/campaignManagement.js"></script>
+    <script src="/controllers/views/campaignApproval.js"></script>
+    <script src="/controllers/views//campaign/all.js"></script>
+    <script src="/controllers/views/campaign/new.js"></script>
+    <script src="/controllers/views/campaign/scheduled.js"></script>
+    <script src="/controllers/views/campaign/followUp.js"></script>
+    <script src="/controllers/views/campaign/progressReports.js"></script>
+    <script src="/controllers/views/campaign/launch.js"></script>
+    <script src="/controllers/views/campaign/followUpNotifications.js"></script>
+    <script src="/controllers/views/campaign/socialMedia.js"></script>
+    <script src="/controllers/views/campaign/giftDistribution.js"></script>
+    <script src="/controllers/views/campaign/leads.js"></script>
+    <script src="/controllers/views/campaign/budgets.js"></script>
+    
+    <!-- leads management -->
+    <script src="/controllers/views/leadsManagement.js"></script>
+    <script src="/controllers/views/leads/pool.js"></script>
+    <script src="/controllers/views/leads/assign.js"></script>
+    <script src="/controllers/views/leads/new.js"></script>
+    <script src="/controllers/views/leads/appointments.js"></script>
+    <script src="/controllers/views/leads/followUp.js"></script>
+
+    <!-- components -->
+    <script src="/controllers/components/barChart.js"></script>
+    
+    <!-- appointments -->
+    <script src="/controllers/views/appointements.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+#newLeads-newLead-basicInfo {
+    .dropzone {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 20px;
+        padding: 5px 10px 5px 10px;
+        transition: all 0.3s ease;
+
+        &[data-uploaded="true"] {
+            background-color: #c8fce0;
+        }
+
+        .texts {
+            display: flex;
+            flex-direction: column;
+            max-width: 60%;
+            .text{
+                color: $gray2;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}

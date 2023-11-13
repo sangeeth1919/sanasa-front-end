@@ -1,0 +1,41 @@
+#fb {
+    .input {
+        color: $darkBlue;
+    }
+
+    .fb-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+
+        .fb-table {
+            width: 100%;
+            min-width: 800px;
+
+            .row {
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                gap: 20px;
+
+                .head, .data {
+                    width: 100%;
+                    text-align: left;
+
+                    &:nth-child(2) {
+                        min-width: 350px;
+                    }
+
+                    &:last-child {
+                        max-width: 96px;
+                    }
+                }
+            }
+        }
+    }
+
+    .input {
+        padding: 10px;
+        width: 100%;
+    }
+}

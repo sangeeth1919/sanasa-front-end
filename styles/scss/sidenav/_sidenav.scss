@@ -1,0 +1,83 @@
+$imageSize: 60px;
+
+.side-nav {
+    md-backdrop {
+        position: fixed !important;
+    }
+
+    md-sidenav {
+        overflow-y: auto;
+        height: 100vh;
+        width: 100%;
+        padding-bottom: 100px;
+        z-index: 72;
+
+        md-toolbar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: transparent;
+            color: $darkBlue;
+            padding-bottom: 25px;
+            border-bottom: 2px solid $gray3;
+
+            .section{
+                display: flex;
+                width: 100%;
+
+                &:nth-child(1) {
+                    justify-content: flex-end;
+
+                    md-icon {
+                        color: $darkBlue !important;
+                    }
+                }
+
+                &:nth-child(2) {
+                    flex-direction: column;
+                    gap: 7px;
+
+                    .desc{
+                        font-size: 0.95rem;
+                        color: $gray1;
+                    }
+                }
+            }
+
+            .image-section {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+        
+                .image{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 2rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    text-transform: uppercase;
+                    width: $imageSize;
+                    height: $imageSize;
+                    background-color: #73CB3D;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    md-sidenav {
+        max-width: 450px;
+    }
+}
+
+@import './leads';
+@import './gift';
+@import './campaign/progressReports';
+@import './campaign/approval';
+@import './campaign/followUp';
+@import './campaign/launch';
+@import './campaign/followUpNotifications';
+@import './campaign/socialMedia';

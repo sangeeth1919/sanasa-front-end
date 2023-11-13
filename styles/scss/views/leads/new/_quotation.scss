@@ -1,0 +1,26 @@
+#newLeads-quotation {
+	.table-wrap {
+		.status {
+			width: 100%;
+			min-width: 100px;
+			border-radius: 5px;
+			padding: 5px 10px 5px 10px;
+			text-transform: capitalize;
+			border: 2px solid #f8de1d;
+			background-color: #fffce9;
+			color: #f8de1d;
+
+			&[data-type="Rejected"] {
+				background-color: #fcfdff;
+				border-color: #dbdef9;
+				color: #b5bfe4;
+			}
+
+			&[data-type="Requirement Call"] {
+				background-color: #f3fffc;
+				border-color: #58f4d0;
+				color: #14bf97;
+			}
+		}
+	}
+}

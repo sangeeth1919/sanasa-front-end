@@ -1,0 +1,64 @@
+#budgetsCampaign {
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .top-total{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px 0 20px 0;
+        font-weight: bold;
+        border-bottom: 2px solid $gray3;
+
+        .value {
+            span {
+                font-size: 0.9rem;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .col-2 {
+        display: grid;
+        grid-template-columns: 45% 45%;
+        gap: 50px;
+        max-width: 1360px;
+        row-gap: 30px;
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 5px;
+            
+            .content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                gap: 10px;
+
+                .title-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    
+                    .sub-title {
+                        color: $gray1;
+                    }
+                }
+
+            }
+
+            .input {
+                padding: 10px;
+            }
+        }
+    }
+}

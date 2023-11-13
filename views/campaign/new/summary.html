@@ -1,0 +1,258 @@
+<md-content class="md-padding">
+    <div class="section">
+        <h3 class="main-title">Main Info</h3>
+
+        <div class="info-wrap">
+            <!-- <div ng-if="displayInfo(key, 'mainInfo')" class="info" ng-repeat="(key, v) in mainInfo" >
+                <p class="title">{{displayKeyFormat(key)}}</p>
+                <p class="desc">{{displayValueFormat(v) || '-'}}</p>
+            </div> -->
+
+            <div class="info">
+                <p class="title">Campaign Name</p>
+                <p class="desc">{{mainInfo.name || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Campaign Location Type</p>
+                <p class="desc">{{mainInfo.locationType || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Location Address</p>
+                <p class="desc">{{mainInfo.locationAddress || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Google Map Location</p>
+                <p class="desc">{{mainInfo.locationMap || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Campaign Location Latitude</p>
+                <p class="desc">{{mainInfo.locationLat || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Campaign Location Longitude</p>
+                <p class="desc">{{mainInfo.locationLng || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Business Channel</p>
+                <p class="desc">{{mainInfo.channel || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Description</p>
+                <p class="desc">{{mainInfo.description || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Branch</p>
+                <p class="desc">{{mainInfo.branch || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Date From</p>
+                <p class="desc">{{(mainInfo.dateFrom | formatDate) || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Time From</p>
+                <p class="desc">{{(mainInfo.timeFrom | formatTime) || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Date To</p>
+                <p class="desc">{{(mainInfo.dateTo | formatDate) || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Time To</p>
+                <p class="desc">{{(mainInfo.timeTo | formatTime) || '-'}}</p>
+            </div>
+            <div ng-if="mainInfo.continues == 'true'" class="info">
+                <p class="title">Continues Campaign</p>
+                <p class="desc">{{displayValueFormat(mainInfo.continuesDays) || '-'}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="main-title">Criteria</h3>
+
+        <div class="info-wrap">
+            <div class="info">
+                <p class="title">Campaign Typ</p>
+                <p class="desc">{{criteria.type || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Expecting Leads</p>
+                <p class="desc">{{criteria.expectingLeads || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Expecting Prospecting</p>
+                <p class="desc">{{criteria.expectingProspecting || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Expecting NBP</p>
+                <p class="desc">{{criteria.expectingNBP || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Expecting GWP</p>
+                <p class="desc">{{criteria.expectingGWP || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">No Of Recruitment</p>
+                <p class="desc">{{criteria.recruitmentNum || '-'}}</p>
+            </div>
+            <div class="info">
+                <p class="title">Note</p>
+                <p class="desc">{{criteria.note || '-'}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="main-title">Artworks</h3>
+
+        <div class="table-wrap">
+            <table ng-table="ArtWorks" class="table" show-filter="false">
+                <tr ng-repeat="(i, item) in $data" class="table-row">
+                    <td>
+                        <md-checkbox aria-label={{item.id}}></md-checkbox>
+                    </td>
+                    <td title="'Document Name'" filter="{ name: 'text'}" sortable="'name'">
+                        <h4 class="color-dark-blue">{{item.images[0].name}}</h4>
+                    </td>
+                    <td title="'Date Added'" filter="{ dateAdded: 'text'}" sortable="'dateAdded'">
+                        {{item.dateAdded}}
+                    </td>
+                    <td title="'Uploaded By'" filter="{ uploadedBy: 'text'}" sortable="'uploadedBy'">
+                        {{item.uploadedBy}}
+                    </td>
+                    <td title="'Checked By'" filter="{ checkedBy: 'text'}" sortable="'checkedBy'">
+                        {{item.checkedBy}}
+                    </td>
+                    <td title="'Approved By'" filter="{ approvedBy: 'text'}" sortable="'approvedBy'">
+                        {{item.approvedBy}}
+                    </td>
+                    <td>
+                        <md-button ng-click="showApproveArtwork($event , item)" class="md-primary button">Manage
+                        </md-button>
+                    </td>
+                    <td>
+                        <md-button ng-click="removeArtwork(i, item.id)" class="md-secondary button">Remove</md-button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="main-title">Budgets</h3>
+
+        <div class="info-wrap">
+            <div class="info" ng-repeat="budget in budgets">
+                <p class="title">{{budget.label}}</p>
+                <p class="desc">LKR. {{budget.value || '0'}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="main-title">Vehicle</h3>
+
+        <div class="table-wrap">
+            <table ng-table="Vehicles" class="table" show-filter="false">
+                <tr ng-repeat="(i, item) in $data" class="table-row">
+                    <td>
+                        <md-checkbox aria-label={{item.id}}></md-checkbox>
+                    </td>
+                    <td title="'Vehicle Type'" filter="{ type: 'text'}" sortable="'type'">
+                        <h4 class="color-dark-blue">{{item.type}}</h4>
+                    </td>
+                    <td title="'Purpose'" filter="{ purpose: 'text'}" sortable="'purpose'">
+                        {{item.purpose}}
+                    </td>
+                    <td title="'No of Seats'" filter="{ seats: 'number'}" sortable="'seats'">
+                        {{item.seats}}
+                    </td>
+                    <td title="'Date Requested'" filter="{ dateRequested: 'text'}" sortable="'dateRequested'">
+                        {{item.dateRequested}}
+                    </td>
+                    <td title="'Checked By'" filter="{ checkedBy: 'text'}" sortable="'checkedBy'">
+                        {{item.checkedBy}}
+                    </td>
+                    <td title="'Approved By'" filter="{ approvedBy: 'text'}" sortable="'approvedBy'">
+                        {{item.approvedBy}}
+                    </td>
+                    <td title="'Approved Date'" filter="{ approvedDate: 'text'}" sortable="'approvedDate'">
+                        {{item.approvedDate}}
+                    </td>
+                    <td>
+                        <md-button ng-click="showAddEditVehicle($event, item)" class="md-primary button">Edit
+                        </md-button>
+                    </td>
+                    <td>
+                        <md-button ng-click="removeVehicle(i, item.id)" class="md-secondary button">Remove</md-button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="main-title">Other Arrangements</h3>
+
+        <div class="info-wrap">
+            <div class="info" ng-repeat="arrangement in otherArrangements">
+                <p class="title">{{arrangement.label}}</p>
+                <p class="desc">LKR. {{arrangement.value || '0'}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="main-title">F & B</h3>
+
+        <div class="info-wrap">
+            <div class="info" ng-repeat="item in fb">
+                <p class="title">{{item.type}}</p>
+                <p class="desc">{{item.amount || '0'}}</p>
+                <p class="desc">{{item.description || '0'}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="main-title">Participants</h3>
+
+        <div class="table-wrap">
+            <table ng-table="Participants" class="table" show-filter="false">
+                <tr ng-repeat="(i, item) in $data" class="table-row">
+                    <td title="'Participants'" filter="{ participants: 'text'}" sortable="'participants'">
+                        {{item.participants}}
+                    </td>
+                    <td title="'Internal Participants'" filter="{ internalParticipants: 'text'}"
+                        sortable="'internalParticipants'">
+                        {{item.internalParticipants}}
+                    </td>
+                    <td title="'Branch'" filter="{ branch: 'text'}" sortable="'branch'">
+                        {{item.branch}}
+                    </td>
+                    <td title="'Date'" filter="{ date: 'text'}" sortable="'date'">
+                        {{item.date | formatDate}}
+                    </td>
+                    <td title="'External Participants'" filter="{ externalParticipants: 'text'}"
+                        sortable="'externalParticipants'">
+                        {{item.externalParticipants}}
+                    </td>
+                    <td title="'External Participants Cost (LKR)'" filter="{ externalParticipantsCost: 'text'}"
+                        sortable="'externalParticipantsCost'">
+                        {{item.externalParticipantsCost}}
+                    </td>
+                    <td>
+                        <md-button ng-click="onParticipantManage(item, true)" class="md-primary button">Manage
+                        </md-button>
+                    </td>
+                    <td>
+                        <md-button ng-click="removeParticipant(i, item.id)" class="md-secondary button">Remove
+                        </md-button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</md-content>

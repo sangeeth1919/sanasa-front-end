@@ -1,0 +1,102 @@
+<md-dialog class="appointment-popup" aria-label="Upload Document">
+    <md-toolbar style="background-color: transparent;">
+        <div class="md-toolbar-tools">
+            <div class="tool-bar-top">
+                <div class="section">
+                    <h1 class="title">Manage Appointment</h1>
+                    <p class="sub">Please manage the details of the allocation of funds</p>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div class="row">
+                <div class="input-wrap dropdown">
+                    <md-select name="type" ng-model="appointment.leadId">
+                        <md-select-header>
+                            <input style="width: 88%;" ng-model="searchLeadTxt" class="input select-header-input" onkeydown="event.stopPropagation()">
+                        </md-select-header>
+                        <md-option value="{{lead.id}}" ng-repeat="lead in leads | filter : searchLeadTxt">{{lead.fName}} {{lead.lName}}</md-option>
+                    </md-select>
+                    <label>Lead</label>
+                </div>
+                <div class="input-wrap dropdown">
+                    <md-select name="type" ng-model="appointment.clientId">
+                        <md-select-header>
+                            <input style="width: 88%;" ng-model="searchClientTxt" class="input select-header-input" onkeydown="event.stopPropagation()">
+                        </md-select-header>
+                        <md-option value="{{client.id}}" ng-repeat="client in clients | filter : searchClientTxt">{{client.fName}} {{client.lName}}</md-option>
+                    </md-select>
+                    <label>Client</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="First Name" ng-model="appointment.fName" >
+                    <label>First Name</label>
+                </div>
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="Last Name" ng-model="appointment.lName" >
+                    <label>Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="Contact Number" ng-model="appointment.contact" >
+                    <label>Contact Number</label>
+                </div>
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="Occupation" ng-model="appointment.occupation" >
+                    <label>Occupation</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-wrap">
+                    <input class="input" type="date" placeholder="Date From" ng-model="appointment.dateFrom" date-input>
+                    <label>Date From</label>
+                </div>
+                <div class="input-wrap">
+                    <input class="input" type="time" placeholder="Time from" ng-model="appointment.timeFrom" date-input >
+                    <label>Time from</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-wrap">
+                    <input class="input" type="date" placeholder="Date To" ng-model="appointment.dateTo" date-input>
+                    <label>Date To</label>
+                </div>
+                <div class="input-wrap">
+                    <input class="input" type="time" placeholder="Time To" ng-model="appointment.timeTo" date-input>
+                    <label>Time To</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="Location Address" ng-model="appointment.location" >
+                    <label>Location Address</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="Location Latitude" ng-model="appointment.locationLat" >
+                    <label>Location Latitude</label>
+                </div>
+                <div class="input-wrap">
+                    <input class="input" type="text" placeholder="Location Longitude" ng-model="appointment.locationLng" >
+                    <label>Location Longitude</label>
+                </div>
+            </div>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <md-button class="md-raised button bg-blue" ng-click="save('edit')">
+            Save
+        </md-button>
+        <md-button ng-click="cancel()" class="md-primary button btn-outlined">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

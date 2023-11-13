@@ -1,0 +1,32 @@
+<md-content class="md-padding">
+    <div class="table-wrap">
+        <table ng-table="Participants" class="table" show-filter="false">
+            <tr ng-repeat="(i, item) in $data" class="table-row">
+                <td title="'Participants'" filter="{ participants: 'text'}" sortable="'participants'">
+                    {{item.participants}}
+                </td>
+                <td title="'Internal Participants'" filter="{ internalParticipants: 'text'}" sortable="'internalParticipants'">
+                    {{item.internalParticipants}}
+                </td>
+                <td title="'Branch'" filter="{ branch: 'text'}" sortable="'branch'">
+                    {{item.branch}}
+                </td>
+                <td title="'Date'" filter="{ date: 'text'}" sortable="'date'">
+                    {{item.date | formatDate}}
+                </td>
+                <td title="'External Participants'" filter="{ externalParticipants: 'text'}" sortable="'externalParticipants'">
+                    {{item.externalParticipants}}
+                </td>
+                <td title="'External Participants Cost (LKR)'" filter="{ externalParticipantsCost: 'text'}" sortable="'externalParticipantsCost'">
+                    {{item.externalParticipantsCost}}
+                </td>
+                <td>
+                    <md-button ng-click="onParticipantManage(item, true)" class="md-primary button">Manage</md-button>
+                </td>
+                <td>
+                    <md-button ng-click="removeParticipant(i, item.id)" class="md-secondary button">Remove</md-button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</md-content> 

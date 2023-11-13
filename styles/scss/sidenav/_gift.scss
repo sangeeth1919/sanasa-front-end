@@ -1,0 +1,17 @@
+#giftDistribution-gift {
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .title {
+            margin-bottom: 10px;
+        }
+    }
+
+    .button-wrap{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}

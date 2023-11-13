@@ -1,0 +1,26 @@
+.analysis-manage-sidebar {
+	.social-section {
+		margin-top: 10px;
+		max-width: 80%;
+		justify-content: space-between;
+	}
+
+	.content-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .grid-content {
+                display: grid;
+                grid-template-columns: 46% 46%;
+                gap: 10px;
+                row-gap: 20px;
+            }
+        }
+	}
+}

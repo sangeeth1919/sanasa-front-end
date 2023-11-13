@@ -1,0 +1,112 @@
+<md-sidenav class="md-sidenav-right md-padding" md-component-id="leads-management-renewal" md-whiteframe="4"
+    md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('leads-management-renewal')" class="md-icon-button"
+                aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+
+        <div class="section">
+            <h3 ng-if="renewal.name" class="title">{{renewal.name}}</h3>
+            <h3 ng-if="!renewal.name" class="title">Add Renewal</h3>
+            <p ng-if="!!renewal.date && !!renewal.time" class="desc">{{renewal.date | formatDate}} - {{renewal.time formatTime}}</p>
+        </div>
+        <div class="social-section">
+            <a href="{{social.link}}" target="_blank" class="social-wrap" ng-repeat="social in socials">
+                <span class="iconify" data-icon="mdi:{{social.icon}}"></span>
+            </a>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content-wrap" layout-margin="">
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Description</h4>
+            </div>
+
+            <div class="inputs-wrap">
+                <div class="input-wrap dropdown">
+                    <md-select name="type" ng-model="renewal.selectedLeadId">
+                        <md-select-header>
+                            <input style="width: 88%;" ng-model="searchTxt" class="input select-header-input" onkeydown="event.stopPropagation()">
+                        </md-select-header>
+                        <md-option value="{{lead.id}}" ng-repeat="lead in leads | filter : searchTxt">{{lead.fName}} {{lead.lName}}</md-option>
+                    </md-select>
+                    <label>Lead</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="renewal.title" class="input" type="text" placeholder="Title">
+                    <label>Title</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="renewal.customer" class="input" type="text" placeholder="Customer Name">
+                    <label>Customer Name</label>
+                </div>
+                <div class="input-wrap">
+                    <textarea ng-model="renewal.message" class="input" type="text" placeholder="Message">{{renewal.message}}</textarea>
+                    <label>Message</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Date Time</h4>
+            </div>
+
+            <div class="inputs-wrap row">
+                <div class="input-wrap">
+                    <input ng-model="renewal.date" class="input" type="date" placeholder="Date From" date-input >
+                    <label>Date From</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="renewal.time" class="input" type="time" placeholder="Time From" date-input >
+                    <label>Time From</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Status</h4>
+            </div>
+
+            <md-radio-group class="radio-wrap" ng-model="renewal.status" aria-labelledby="Status">
+                <md-radio-button class="md-primary" value="Not Started">Not Started</md-radio-button>
+                <md-radio-button class="md-primary" value="In Progress">In Progress</md-radio-button>
+                <md-radio-button class="md-primary" value="Completed">Completed</md-radio-button>
+              </md-radio-group>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Priority</h4>
+            </div>
+
+            <md-radio-group class="radio-wrap" ng-model="renewal.priority" aria-labelledby="Priority">
+                <md-radio-button class="md-primary" value="Low">Low</md-radio-button>
+                <md-radio-button class="md-primary" value="Normal">Normal</md-radio-button>
+                <md-radio-button class="md-primary" value="High">High</md-radio-button>
+                <md-radio-button class="md-primary" value="Critical">Critical</md-radio-button>
+              </md-radio-group>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Add Recipient or Group</h4>
+            </div>
+
+            <md-chips
+                class="renewal-chips input"
+                ng-model="renewal.recipients" 
+                input-aria-label="Recipient Or Group"
+              ></md-chips>
+        </div>
+    </md-content>
+
+    <div class="buttons-wrap">
+        <md-button ng-click="saveRenewalCollections('leads-management-renewal')" class="md-primary md-raised button bg-blue lg" >Send</md-button>
+        <md-button ng-click="closeSideNav('leads-management-renewal')" class="md-primary button btn-outlined lg" >Cancel</md-button>
+    </div>
+
+</md-sidenav>

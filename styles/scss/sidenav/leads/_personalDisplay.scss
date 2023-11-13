@@ -1,0 +1,30 @@
+.analysis-personal-display-sidebar {
+	.content {
+		.title {
+			margin-bottom: 30px;
+		}
+
+		.info-wrap {
+			height: max-content;
+			display: grid;
+			grid-template-columns: auto auto;
+			gap: 30px;
+
+			.info {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+
+				.title {
+					color: $gray2;
+					margin-bottom: 0;
+				}
+
+				.value {
+					font-weight: 500;
+					color: $darkBlue;
+				}
+			}
+		}
+	}
+}

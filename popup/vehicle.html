@@ -1,0 +1,99 @@
+<md-dialog class="vehicle-popup" aria-label="Vehicle Request">
+    <md-toolbar style="background-color: transparent;">
+        <div class="md-toolbar-tools">
+            <div class="tool-bar-top">
+                <div class="section">
+                    <h1 class="title">Vehicle Request</h1>
+                    <p class="sub">Please check the details for a specific task</p>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div class="row">
+                <div class="input-wrap dropdown">
+                    <md-select name="type" ng-model="vehicle.type">
+                        <md-option value="car">Car</md-option>
+                        <md-option value="van">Van</md-option>
+                    </md-select>
+                    <label>Vehicle Type</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="vehicle.purpose" class="input" type="text" placeholder="Purpose" >
+                    <label>Purpose</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-wrap">
+                    <input ng-model="vehicle.seats" class="input" type="number" min="0" placeholder="No Of Seats">
+                    <label>No Of Seats</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-wrap">
+                    <input ng-model="vehicle.dateFrom" type="date" class="input" placeholder="Date From" date-input>
+                    <label class="label">Date From</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="vehicle.timeFrom" type="time" class="input" placeholder="Time From" date-input>
+                    <label class="label">Time From</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-wrap">
+                    <input ng-model="vehicle.dateTo" type="date" class="input" placeholder="Date To" date-input>
+                    <label class="label">Date To</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="vehicle.timeTo" type="time" class="input" placeholder="Time To" date-input>
+                    <label class="label">Time To</label>
+                </div>
+            </div>
+
+            <md-radio-group class="row" ng-model="vehicle.vehicle" aria-labelledby="vehicleType">
+                <md-radio-button value="Official vehicle" class="md-primary">Official Vehicle From Head Office</md-radio-button>
+                <md-radio-button value="Hire vehicle" class="md-primary">Hire Vehicle</md-radio-button>
+            </md-radio-group>
+
+            
+            <div ng-attr-data-uploaded="{{vehicle.files.length > 0 ? 'true' : 'false'}}" class="dropzone" file-dropzone="[application/pdf, application/vnd.ms-excel]" files="vehicle" variable="files" data-max-file-size="50" multiple="true">
+                <input style="display: none;" type="file" name="image" id="vehicleDropDownPdf" accept="application/pdf, application/vnd.ms-excel" files="vehicle" variable="files" file-change="application/pdf, application/vnd.ms-excel" multiple-files="true" multiple >
+                <span class="material-icons">description</span>
+                <span class="text">Drag or browse file to upload (max. 50mb)</span>
+                <label class="browse" for="vehicleDropDownPdf">Browse</label>
+            </div>
+
+            <div ng-if="vehicle.files.length > 0" class="files-wrap">
+                <div class="file-wrap" ng-repeat="(i, f) in vehicle.files">
+                    <p class="name">{{f.name}}</p>
+
+                    <div class="button-wrap">
+                        <md-button file-view file-name="f.name" file-data="f.file" class="md-primary button">view</md-button>
+                        <md-button ng-click="removeVehicleFile(i)" class="button">remove</md-button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-wrap">
+                <textarea ng-model="vehicle.note" class="input" type="text" placeholder="Add Note"></textarea>
+                <label>Add Note</label>
+            </div>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <md-button ng-if="vehicle.id" class="md-raised button bg-blue" ng-click="save('edit')">
+            Save Request
+        </md-button>
+        <md-button ng-if="!vehicle.id"  class="md-raised button bg-blue" ng-click="save('new')">
+            Add New Request
+        </md-button>
+        <md-button ng-click="cancel()" class="md-primary button btn-outlined">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

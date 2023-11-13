@@ -1,0 +1,31 @@
+<md-content id="budget" class="md-padding">
+    <div class="input-wrap dropdown">
+        <md-select ng-model="budgets" multiple ng-change="handleOption(budgets, 'budgets')" >
+            <md-select-header>
+                <input ng-model="searchTxt" class="input select-header-input" onkeydown="event.stopPropagation()">
+            </md-select-header>
+            <md-option ng-value="budget" ng-repeat="budget in budgetsList | filter : searchTxt">
+                {{budget.label}}
+            </md-option>
+        </md-select>
+        <label>Select Budget Option</label>
+    </div>
+
+    <div class="top-total">
+        <p class="title color-dark-blue">Total Budget</p>
+        <p class="value"><span>LKR.</span> {{budgetsTotal}}</p>
+    </div>
+    
+    <div class="col-2">
+        <div class="item" ng-repeat="(i, budget) in budgets" >
+            <div class="content">
+                <p class="title">{{budget.label}}</p>
+                <input ng-change="handleOnTotalValueChange('budgets')" ng-model="budget.value" min="0" type="number" class="input" >
+            </div>
+            <md-button style="color: #FD5D5D;" ng-click="handleRemoveOption(i, 'budgets')" class="md-icon-button" aria-label="Close">
+                <md-icon style="color: #FD5D5D;" ng-bind="'delete'"></md-icon>
+            </md-button>
+        </div>
+    </div>
+
+</md-content>

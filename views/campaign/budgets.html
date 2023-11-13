@@ -1,0 +1,56 @@
+<div id="budgetsCampaign" class="container" ng-controller="budgetsCampaignController">
+    <div class="container-top">
+        <div class="section">
+            <h2 class="title">Campaign Expenses</h2>
+            <p class="last-update">Last added {{getLastCreatedAt(budgets) | lastUpdated}}</p>
+        </div>
+
+        <div class="section">
+            <md-button ng-click="handleOnSave()" class="md-primary md-raised button bg-blue">Save</md-button>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="top-total">
+            <p class="title color-dark-blue">Total Budget</p>
+            <p class="value"><span>LKR.</span> {{total}}</p>
+        </div>
+        
+        <div class="col-2">
+            <div class="item" ng-repeat="(i, budget) in budgets" >
+                <div class="content">
+                    <div class="title-wrap">
+                        <p class="title">{{budget.label}}</p>
+                        <p class="sub-title">Estimate: {{budget.value}}</p>
+                        <file-upload func="handleOnFileUpload" index="{{i}}" >
+                            <md-button class="md-icon-button md-primary">
+                                <span class="material-icons upload-icon">
+                                    cloud_upload
+                                </span>
+                            </md-button>
+                        </file-upload>
+                    </div>
+    
+                    <input ng-change="handleBudgetTotalChange()" ng-model="budget.total" min="0" type="number" class="input" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="item" ng-repeat="(i, arrangement) in otherArrangements">
+            <div class="content">
+                <div class="title-wrap">
+                    <p class="title color-dark-blue">{{arrangement.label}}</p>
+                    <file-upload func="handleOnFileUpload" index="{{i}}" >
+                        <md-button class="md-icon-button md-primary">
+                            <span class="material-icons upload-icon">
+                                cloud_upload
+                            </span>
+                        </md-button>
+                    </file-upload>
+                </div>
+                </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,32 @@
+<md-content class="md-padding">
+    <div class="table-wrap">
+        <table ng-table="SmsCampaigns" class="table" show-filter="false">
+            <tr ng-repeat="item in $data | filter : searchTxT" class="table-row">
+                <td>
+                    <md-checkbox aria-label={{item.id}}></md-checkbox>
+                </td>
+                <td title="'Campaign ID'" filter="{ displayId: 'text'}" sortable="'displayId'">
+                    <h4 class="color-dark-blue">{{item.displayId}}</h4>
+                </td>
+                <td title="'Campaign Name'" filter="{ campaignName: 'text'}" sortable="'campaignName'">
+                    {{item.campaignName}}
+                </td>
+                <td title="'Date'" filter="{ date: 'text'}" sortable="'date'">
+                    {{item.date | formatDate}}
+                </td>
+                <td title="'Created By'" filter="{ createdBy: 'text'}" sortable="'createdBy'">
+                    {{item.createdBy}}
+                </td>
+                <td title="'Approved By'" filter="{ approvedBy: 'text'}" sortable="'approvedBy'">
+                    {{item.approvedBy}}
+                </td>
+                <td>
+                    <md-button ng-click="openSideNav('campaign-management-social-media', item)" class="md-primary button">Manage</md-button>
+                </td>
+                <td>
+                    <md-button ng-click="removeSocialMedia(item.id)" class="md-secondary button">Remove</md-button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</md-content>

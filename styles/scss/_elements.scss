@@ -1,0 +1,230 @@
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.material-icons,
+.iconify {
+  cursor: pointer;
+}
+
+.button {
+  padding: 0px 20px 0px 20px;
+  border-radius: 5px;
+  margin-left: 0;
+  margin-right: 0;
+  color: $gray1;
+
+  &.md-primary {
+    color: $blue;
+  }
+
+  &.f-white {
+    color: $white;
+  }
+
+  &.bg-blue {
+    color: $white !important;
+    background-color: $blue !important;
+  }
+
+  &.lg {
+    padding: 7px 30px 7px 30px;
+  }
+
+  &.btn-outlined {
+    border: 2px solid $gray3;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    background-color: $gray3 !important;
+  }
+}
+
+.input {
+  outline: none;
+  border: 2px solid $gray3;
+  transition: all 0.3s ease;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  height: max-content;
+
+  &:focus {
+    border-color: $blue;
+  }
+}
+
+.divider {
+  height: 2px;
+  width: 100%;
+  background-color: $gray3;
+
+  &.vertical {
+    height: 40px;
+    width: 2px;
+  }
+}
+
+.md-input-container {
+  padding: 10px 0px 10px 0px;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+
+  &.dropdown {
+    label {
+      transform: translateY(-25px);
+      color: $blue;
+    }
+  }
+
+  label {
+    top: 17px;
+    pointer-events: none;
+    margin-left: 12px;
+    position: absolute;
+    transition: all 0.3s ease;
+    background-color: rgb(255, 255, 255);
+    padding: 0 5px 0 5px;
+    font-size: 0.9rem;
+  }
+
+  textarea {
+    min-height: 100px;
+    max-width: 100%;
+    min-width: 100%;
+    transition: height 0s ease;
+  }
+
+  input,
+  textarea {
+    padding: 15px;
+    width: 100%;
+    background-color: transparent;
+
+    &::-webkit-input-placeholder {
+      font-size: 0.9rem;
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      +label {
+        transform: translateY(-25px);
+        color: $blue;
+      }
+    }
+  }
+}
+
+md-select {
+  width: 100%;
+  border: 2px solid $gray3;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.md-select-value {
+  border-bottom-style: none !important;
+  border-bottom: 0px;
+}
+
+md-dialog {
+  max-width: 700px;
+  width: 100%;
+  max-height: 82%;
+  padding-bottom: 30px;
+
+  md-dialog-content {
+    overflow: visible;
+  }
+
+  .input-wrap {
+    label {
+      background-color: #fff;
+    }
+  }
+
+  md-toolbar {
+    background-color: transparent;
+    margin-bottom: 20px;
+
+    .tool-bar-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 60px;
+
+      .section {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        &:nth-child(1) {
+          .title {
+            color: #100362;
+            font-weight: bold;
+            font-size: 1.5rem;
+          }
+
+          .sub {
+            font-size: 0.9rem;
+            color: $gray1;
+          }
+        }
+      }
+    }
+  }
+
+  md-dialog-actions {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    padding-bottom: 50px;
+  }
+}
+
+md-select-header {
+  padding: 20px;
+}
+
+.select-header-input {
+  width: 95%;
+  margin: 10px 0 10px 0;
+}
+
+.non-centered-dropdown md-select-menu {
+  margin-top: 45px;
+}
+
+md-backdrop.md-sidenav-backdrop {
+  z-index: 71;
+}
+
+.color-calendar .calendar__days .calendar__day {
+  z-index: 65 !important;
+}
+
+md-ink-bar {
+  display: none;
+}
+
+.upload-icon {
+  color: $blue;
+}
+
+.expand_more {
+  transition: all 0.4s ease;
+  transform: rotateZ(0);
+  
+  &.active {
+    transform: rotateZ(180deg);
+  }
+}

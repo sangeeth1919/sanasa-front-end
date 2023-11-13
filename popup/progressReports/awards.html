@@ -1,0 +1,45 @@
+<md-dialog class="progressReport-popup" aria-label="Quotation">
+    <md-toolbar style="background-color: transparent;">
+        <div class="md-toolbar-tools">
+            <div class="tool-bar-top">
+                <div class="section">
+                    <h1 class="title">Awards and Recognition Details Report</h1>
+                    <p class="sub">Please check how the data changed</p>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="md-dialog-content">
+
+            <div class="table-wrap">
+                <table ng-table="ProgressReportCampaign" class="table" show-filter="false">
+                    <tr ng-repeat="item in $data" class="table-row">
+                        <td title="'Winner ID'" filter="{ id: 'text'}" sortable="'id'">
+                            <h4 class="color-dark-blue">{{item.id}}</h4>
+                        </td>
+                        <td title="'First Name '" filter="{ fname: 'text'}" sortable="'fname'">
+                            {{item.fname}}
+                        </td>
+                        <td title="'Last Name '" filter="{ lname: 'text'}" sortable="'lname'">
+                            {{item.lname}}
+                        </td>
+                        <td title="'Campaign ID '" filter="{ campaignId: 'text'}" sortable="'campaignId'">
+                            {{item.campaignId}}
+                        </td>
+                        <td title="'Competition ID'" filter="{ competitionId: 'text'}" sortable="'competitionId'">
+                            {{item.competitionId}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <md-button ng-click="cancel()" class="md-primary button btn-outlined">
+            Close
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,32 @@
+<md-dialog class="file-upload-popup" aria-label="Upload Document">
+    <md-toolbar style="background-color: transparent;">
+        <div class="md-toolbar-tools">
+            <div class="tool-bar-top">
+                <div class="section">
+                    <h1 class="title">Upload Document</h1>
+                    <p class="sub">Please upload your file</p>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="md-dialog-content"> 
+            <div ng-attr-data-uploaded="{{files.files.length > 0 ? 'true' : 'false'}}" class="dropzone" file-dropzone="[application/pdf, application/vnd.ms-excel]" files="files" variable="files" data-max-file-size="50">
+                <input style="display: none;" type="file" name="file" id="fileDropDownPdf" accept="application/pdf, application/vnd.ms-excel" files="files" variable="files" file-change="application/pdf, application/vnd.ms-excel" >
+                <span class="material-icons">description</span>
+                <span class="text">Drag or browse file to upload (max. 50mb)</span>
+                <label class="browse" for="fileDropDownPdf">Browse</label>
+            </div>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <md-button class="md-raised button bg-blue" ng-click="save()">
+            Save
+        </md-button>
+        <md-button ng-click="cancel()" class="md-primary button btn-outlined">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

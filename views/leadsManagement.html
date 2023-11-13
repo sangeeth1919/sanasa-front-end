@@ -1,0 +1,139 @@
+<div id="leadsManagement" class="container" ng-controller="LeadsManagementController">
+    <div class="container-top">
+        <div class="section">
+            <h2 class="title">Leads Management</h2>
+            <p class="last-update">Last updated 2 days ago</p>
+        </div>
+        <div class="section">
+            <md-button href="#/leads-management/assign" class="md-primary button btn-outlined">Leads Pool</md-button>
+            <md-button class="md-primary button btn-outlined">Leads Data Base</md-button>
+            <md-button href="#/leads-management/new" class="md-raised button bg-blue">Add New Lead</md-button>
+        </div>
+    </div>
+
+    <div class="top-cards-section">
+        <div class="card">
+            <p class="title">New</p>
+            <div class="wrap">
+                <h1 class="value">{{newLeadsCount}}</h1>
+                <div class="text">Leads</div>
+            </div>
+        </div>
+        <div class="card">
+            <p class="title">Converted</p>
+            <div class="wrap">
+                <h1 class="value">{{convertedLeadsCount}}</h1>
+                <div class="text">Leads</div>
+            </div>
+        </div>
+        <div class="card">
+            <p class="title">Pending</p>
+            <div class="wrap">
+                <h1 class="value">{{pendingLeadsCount}}</h1>
+                <div class="text">Leads</div>
+            </div>
+        </div>
+        <div class="card">
+            <p class="title">Lost</p>
+            <div class="wrap">
+                <h1 class="value">{{lostLeadsCount}}</h1>
+                <div class="text">Leads</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-card-section">
+
+        <div class="l-card">
+            <div class="title-wrap">
+                <h3 class="title">Recent Visits</h3>
+                <md-button class="md-primary button">View All</md-button>
+            </div>
+
+            <div class="content-wrap box-border">
+                <div class="content-row" ng-repeat="i in [1,2,3, 4]">
+                    <div class="column image-wrap">
+                        <img src="https://tinypng.com/images/social/website.jpg" alt="Profile" class="image">
+                        <div class="column">
+                            <h4 class="title">Kattie Diaz</h4>
+                            <p class="city">Kandy</p>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <p class="date">22 Jan 2021 - 13:29 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="l-card">
+            <div class="title-wrap">
+                <h3 class="title">My Appointments</h3>
+                <md-button class="md-primary button">View All</md-button>
+            </div>
+
+            <div class="calendar-wrap box-border">
+                <div class="event-calendar" id="leads-management-event-calendar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-chart-section">
+        <div class="title-wrap">
+            <h3 class="title">Leads Breakdown</h3>
+
+            <div class="input-wrap dropdown">
+                <md-select ng-change="setLeadsBreakDownRate()" name="type" ng-model="leadsBreakDownRate" aria-placeholder="">
+                    <md-option value="daily">Daily</md-option>
+                    <md-option value="weekly">Weekly</md-option>
+                    <md-option value="monthly">Monthly</md-option>
+                    <md-option value="yearly">Yearly</md-option>
+                </md-select>
+                <label></label>
+            </div>
+        </div>
+
+        <div class="chart-wrap box-border">
+            <bar-chart data="barChart.data" series="barChart.series" colors="barChart.colors" labels="barChart.labels" ></bar-chart>
+            <!-- <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-colours="colours"></canvas> -->
+        </div>
+    </div>
+    <div class="row-card-section">
+        <div class="l-card">
+            <div class="title-wrap">
+                <h3 class="title">Leads Conversion Ratio</h3>
+                <div class="input-wrap dropdown">
+                    <md-select name="type" ng-model="leadConversionRate" aria-placeholder="">
+                        <md-option value="daily">Daily</md-option>
+                        <md-option value="weekly">Weekly</md-option>
+                        <md-option value="monthly">Monthly</md-option>
+                        <md-option value="yearly">Yearly</md-option>
+                    </md-select>
+                    <label></label>
+                </div>
+            </div>
+
+            <div class="content-wrap box-border leads-rate">
+
+                <div class="progress-wrap">
+                    <md-progress-circular md-mode="determinate" value="{{progress}}" class="progress" md-diameter="230">
+                    </md-progress-circular>
+                    <div class="progress-value-wrap">
+                        <p class="value">
+                            {{progress}} <span class="precentage">%</span>
+                        </p>
+    
+                        <div class="completed">Completed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="l-card"></div>
+    </div>
+
+    <div></div>
+
+    <section id="competitionManagement-campaign-approval" class="side-nav" ng-include="'sidenav/campaign/approval.html'" ></section>
+</div>

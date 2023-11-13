@@ -1,0 +1,110 @@
+<div id="sideNavbar" ng-controller="SideNavbarController" data-active="true">
+    <a href="#/" class="back"><span class="material-icons">arrow_back_ios</span> Back to home</a>
+    <div class="profile-section">
+        <div class="profile-image letter" data-active={{!profile.state}}> {{profile.letter}} </div>
+        <img src={{profile.img}} alt="Profile Image" class="profile-image" data-active={{profile.state}}>
+
+        <h2 class="name"> {{profile.name}} </h2>
+        <p class="role"> {{profile.role}} </p>
+        <p class="serial"> {{profile.serial}} </p>
+    </div>
+
+    <div class="social-section">
+        <a href="{{social.link}}" target="_blank" class="social-wrap" ng-repeat="social in socials">
+            <span class="iconify" data-icon="mdi:{{social.icon}}"></span>
+        </a>
+    </div>
+
+    <div class="links-section">
+
+        <a href="" ng-class="menuClass('')" class="link" ng-click="handleOnLinkClick()">
+            Dashboard
+        </a>
+        <a href="#/profile" ng-class="menuClass('#/profile')" class="link" ng-click="handleOnLinkClick()">
+            My Profile
+        </a>
+        <a href="#/report-download" ng-class="menuClass('#/report-download')" class="link" ng-click="handleOnLinkClick()">
+            Report Download
+        </a>
+        <a href="#/leads-management" ng-class="menuClass('#/leads-management')" class="link" ng-click="handleOnLinkClick()">
+            Leads Management
+        </a>
+        <div class="link-wrap">
+            <a href="#/leads-management/pool" ng-class="menuSubClass('#/leads-management/pool')" class="link sub" ng-click="handleOnLinkClick()">
+                - Leeds
+            </a>
+            <a href="#/leads-management/assign" ng-class="menuSubClass('#/leads-management/assign')" class="link sub" ng-click="handleOnLinkClick()">
+                - Assign
+            </a>
+        </div>
+        <a href="#/training-development" ng-class="menuClass('#/training-development')" class="link" ng-click="handleOnLinkClick()">
+            Training &amp; Development
+        </a>
+        <a href="#/competition-management" ng-class="menuClass('#/competition-management')" class="link" ng-click="handleOnLinkClick()">
+            Competition Management
+        </a>
+        <a href="#/campaign-management" ng-class="menuClass('#/campaign-management')" class="link" ng-click="handleOnLinkClick()">
+            Campaign Management
+        </a>
+        <div class="link-wrap">
+            <p class="link sub-head">Create New Campaign</p>
+            <a href="#/campaign-management/all" ng-class="menuSubClass('#/campaign-management/all')" class="link sub" ng-click="handleOnLinkClick()">
+                - Campaigns List
+            </a>
+        </div>
+        <div class="link-wrap">
+            <p class="link sub-head">Web & Social Media Campaigns</p>
+            <a href="#/campaign-management/social-media" ng-class="menuSubClass('#/campaign-management/social-media')" class="link sub" ng-click="handleOnLinkClick()">
+                - Campaigns List
+            </a>
+        </div>
+        <div class="link-wrap">
+            <p class="link sub-head">Campaign Management Approval Dashboard</p>
+            <a href="#/campaign-approval" ng-class="menuSubClass('#/campaign-approval')" class="link sub" ng-click="handleOnLinkClick()">
+                - Dashboard
+            </a>
+            <a href="#/campaign-management/scheduled" ng-class="menuSubClass('#/campaign-management/scheduled')" class="link sub" ng-click="handleOnLinkClick()">
+                - Scheduled Campaigns
+            </a>
+            <a href="#/campaign-management/launch" ng-class="menuSubClass('#/campaign-management/launch')" class="link sub" ng-click="handleOnLinkClick()">
+                - Campaigns Launch
+            </a>
+            <a href="#/campaign-management/followup-notifications" ng-class="menuSubClass('#/campaign-management/followup-notifications')" class="link sub" ng-click="handleOnLinkClick()">
+                - Campaigns Follow-up Notifications
+            </a>
+            <a href="#/campaign-management/leads" ng-class="menuSubClass('#/campaign-management/leads')" class="link sub" ng-click="handleOnLinkClick()">
+                - Leads (Leads of Campaign) (create Leads)
+            </a>
+            <a href="#/campaign-management/followup" ng-class="menuSubClass('#/campaign-management/followup')" class="link sub" ng-click="handleOnLinkClick()">
+                - Campaign Follow-up
+            </a>
+            <a href="#/campaign-management/progress" ng-class="menuSubClass('#/campaign-management/progress')" class="link sub" ng-click="handleOnLinkClick()">
+                - Campaign Progress And Reports
+            </a>
+            <a href="#/campaign-management/gift-distribution" ng-class="menuSubClass('#/campaign-management/gift-distribution')" class="link sub" ng-click="handleOnLinkClick()">
+                - Campaign Gift Distribution
+            </a>
+            <a href="#/campaign-management/budgets" ng-class="menuSubClass('#/campaign-management/budgets')" class="link sub" ng-click="handleOnLinkClick()">
+                - Campaign Budgets
+            </a>
+        </div>
+        <a href="#/customer-service" ng-class="menuClass('#/customer-service')" class="link" ng-click="handleOnLinkClick()">
+            Customer Service
+        </a>
+        <a href="#/my-income" ng-class="menuClass('#/my-income')" class="link" ng-click="handleOnLinkClick()">
+            My Income
+        </a>
+        <a href="#/loans" ng-class="menuClass('#/loans')" class="link" ng-click="handleOnLinkClick()">
+            Loans
+        </a>
+        <a href="#/task-manager" ng-class="menuClass('#/task-manager')" class="link" ng-click="handleOnLinkClick()">
+            Task Manager
+        </a>
+    </div>
+
+    <!-- <div class="links-section">
+        <a href="{{l.link}}" ng-class="menuClass('{{l.link}}')" class="link" ng-click="handleOnLinkClick()"ng-repeat="l in links">
+            {{l.label}}
+        </a>
+    </div> -->
+</div>

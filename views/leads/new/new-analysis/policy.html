@@ -1,0 +1,335 @@
+<md-content class="md-padding">
+    <div class="section">
+        <h3 class="title">Proposed Plan Information</h3>
+
+        <div class="content grid-content">
+            <div class="grid-item">
+                <div class="input-wrap dropdown">
+                    <md-select ng-change="handleOnPolicyProposalChange()" name="type" ng-model="analysis.policy.proposals" multiple
+                        md-container-class="non-centered-dropdown" aria-placeholder="Proposed Plans">
+                        <md-optgroup label="Proposed Plans">
+                            <md-option ng-click="saveAnalysisPolicyProposal(plan)" ng-value="plan" ng-repeat="plan in proposedPlans">
+                                {{plan.info.name}}
+                            </md-option>
+                        </md-optgroup>
+                    </md-select>
+                    <label>Proposed Plans</label>
+                </div>
+                
+
+                <div class="blue-cards-wrap">
+                    <div ng-attr-data-active="{{selectedProposedPlan.name == item.name ? 'true' : 'false'}}"
+                        ng-click="selectProposedPlan(item.info)" class="blue-card"
+                        ng-repeat="item in analysis.policy.proposals">
+                        <p class="title">{{item.info.name}}</p>
+                        <p ng-click="handleProposedPlanRemove(item)" class="remove">Remove</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div ng-if="!!selectedProposedPlan.name" class="proposed-plan-details">
+                    <div class="title-wrap">
+                        <h3 class="title">{{selectedProposedPlan.name}}</h3>
+                        <md-button class="button">Manage</md-button>
+                    </div>
+
+                    <div class="data-wrap">
+                        <p class="title">Commencement Year</p>
+                        <p class="value">{{selectedProposedPlan.commencementYear}}</p>
+                    </div>
+                    <div class="data-wrap">
+                        <p class="title">Term Type</p>
+                        <p class="value">{{selectedProposedPlan.term}}</p>
+                    </div>
+                    <div class="data-wrap">
+                        <p class="title">Maturity Year</p>
+                        <p class="value">{{selectedProposedPlan.maturityYear}}</p>
+                    </div>
+                    <div class="data-wrap">
+                        <p class="title">Commencement Age</p>
+                        <p class="value">{{selectedProposedPlan.commencementAge}}</p>
+                    </div>
+                    <div class="data-wrap">
+                        <p class="title">Policy Terms</p>
+                        <p class="value">{{selectedProposedPlan.policy}}</p>
+                    </div>
+                    <div class="data-wrap">
+                        <p class="title">Maturity Age </p>
+                        <p class="value">{{selectedProposedPlan.maturityAge}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="title">Cover Information</h3>
+
+        <div class="tabs-section">
+            <md-content>
+                <md-tabs md-selected="analysisPolicyTabIndex" md-dynamic-height md-border-bottom
+                    md-stretch-tabs="always">
+                    <md-tab label="Final">
+                        <div class="table-wrap">
+                            <table class="table" show-filter="false">
+                                <tr class="table-head-row">
+                                    <th>Cover</th>
+                                    <th>Existing Policy</th>
+                                    <th>Amount (LKR)</th>
+                                    <th>Monthly Premium ( LKR )</th>
+                                    <th>Per day Premium ( LKR )</th>
+                                </tr>
+                                <tr ng-repeat="item in analysisPolicyCoversTotals" class="table-row">
+                                    <td title="'Cover'">
+                                        {{getAnalysisPolicyCoverTitle(item.cover)}}
+                                    </td>
+                                    <td title="'Existing Policy'">
+                                        <input readonly type="text" class="input" value="{{item.existingPolicy}}">
+                                    </td>
+                                    <td title="'Amount (LKR)'">
+                                        <input readonly type="text" class="input" value="{{item.amount}}">
+                                    </td>
+                                    <td title="'Monthly Premium ( LKR )'">
+                                        <input readonly type="text" class="input" value="{{item.monthlyPremium}}">
+                                    </td>
+                                    <td title="'Per day Premium ( LKR )'">
+                                        <input readonly type="text" class="input" value="{{item.perDayPremium}}">
+                                    </td>
+                                </tr>
+                                <tr class="table-row total">
+                                    <td title="'Cover'">
+                                        Total Premium
+                                    </td>
+                                    <td title="'Existing Policy'"></td>
+                                    <td title="'Amount (LKR)'">
+                                        {{analysisPolicyCoversTotals | calculateTotal:'amount'}}
+                                    </td>
+                                    <td title="'Monthly Premium ( LKR )'">
+                                        {{analysisPolicyCoversTotals | calculateTotal:'monthlyPremium'}}
+                                    </td>
+                                    <td title="'Per day Premium ( LKR )'">
+                                        {{analysisPolicyCoversTotals | calculateTotal:'perDayPremium'}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </md-tab>
+                    <md-tab label="{{mainItem.info.name}}" ng-repeat="mainItem in analysis.policy.proposals">
+                        <div class="table-wrap">
+                            <table class="table" show-filter="false">
+                                <tr class="table-head-row">
+                                    <th>Cover</th>
+                                    <th>Existing Policy</th>
+                                    <th>Amount (LKR)</th>
+                                    <th>Monthly Premium ( LKR )</th>
+                                    <th>Per day Premium ( LKR )</th>
+                                </tr>
+                                <tr style="display: none;" class="table-row"></tr>
+                                <tr ng-repeat="item in mainItem.data" class="table-row">
+                                    <td title="'Cover'">
+                                        {{getAnalysisPolicyCoverTitle(item.cover)}}
+                                    </td>
+                                    <td title="'Existing Policy'">
+                                        <input ng-change="calculateAnalysisPolicyCoverTotals()" type="text" class="input" ng-model="item.existingPolicy">
+                                    </td>
+                                    <td title="'Amount (LKR)'">
+                                        <input ng-change="calculateAnalysisPolicyCoverTotals()" type="text" class="input" ng-model="item.amount">
+                                    </td>
+                                    <td title="'Monthly Premium ( LKR )'">
+                                        <input ng-change="calculateAnalysisPolicyCoverTotals()" type="text" class="input" ng-model="item.monthlyPremium">
+                                    </td>
+                                    <td title="'Per day Premium ( LKR )'">
+                                        <input ng-change="calculateAnalysisPolicyCoverTotals()" type="text" class="input" ng-model="item.perDayPremium">
+                                    </td>
+                                </tr>
+                                <tr class="table-row total">
+                                    <td title="'Cover'">
+                                        Total Premium
+                                    </td>
+                                    <td title="'Existing Policy'"></td>
+                                    <td title="'Amount (LKR)'">
+                                        {{mainItem.data | calculateTotal:'amount':true}}
+                                    </td>
+                                    <td title="'Monthly Premium ( LKR )'">
+                                        {{mainItem.data | calculateTotal:'monthlyPremium':true}}
+                                    </td>
+                                    <td title="'Per day Premium ( LKR )'">
+                                        {{mainItem.data | calculateTotal:'perDayPremium':true}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+        </div>
+    </div>
+    <div class="section">
+        <div class="blue-cards-wrap">
+            <div class="blue-card">
+                <p class="title">Total Premium</p>
+                <p class="desc"><span class="currency">LKR</span> {{(analysisPolicyCoversTotals | calculateTotal:'monthlyPremium') + (analysisPolicyCoversTotals | calculateTotal:'perDayPremium')}}</p>
+            </div>
+            <div class="blue-card">
+                <p class="title">Total Annual Premium</p>
+                <p class="desc"><span class="currency">LKR</span> {{(analysisPolicyCoversTotals | calculateTotal:'monthlyPremium') * 12}}</p>
+            </div>
+            <div class="blue-card">
+                <p class="title">Total Monthly Premium</p>
+                <p class="desc"><span class="currency">LKR</span> {{analysisPolicyCoversTotals | calculateTotal:'monthlyPremium'}}</p>
+            </div>
+            <div class="blue-card">
+                <p class="title">Total Daily Premium</p>
+                <p class="desc"><span class="currency">LKR</span> {{analysisPolicyCoversTotals | calculateTotal:'perDayPremium'}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h3 class="title">Signature</h3>
+
+        <div class="row-3">
+            <div class="signature-wrap">
+                <div class="top">
+                    <h3 class="title">Prospect</h3>
+                    <p class="date">12 Jan 2021</p>
+                </div>
+                <div ng-if="analysis.policy.prospect.length > 0" class="show-signature">
+                    <md-button ng-click="removeSignature('prospect')" class="md-icon-button md-secondary remove">
+                        <md-icon ng-bind="'delete'"></md-icon>
+                    </md-button>
+                    <img ng-if="analysis.policy.prospect.length > 0" src="{{analysis.policy.prospect[0].file}}" alt="Signature"
+                        class="image">
+                </div>
+                <div ng-if="analysis.policy.prospect.length == 0" class="dropzone">
+                    <span class="material-icons">insert_photo</span>
+                    <h2 class="text">Add Your Signature Here</h2>
+                    <signature variable="analysis.policy.prospect" name="prospect" func="updateSignature">
+                        <p class="browse">Add Signature</p>
+                    </signature>
+                </div>
+            </div>
+            <div class="signature-wrap">
+                <div class="top">
+                    <h3 class="title">Advisor</h3>
+                    <p class="date">12 Jan 2021</p>
+                </div>
+                <div ng-if="analysis.policy.advisor.length > 0" class="show-signature">
+                    <md-button ng-click="removeSignature('advisor')" class="md-icon-button md-secondary remove">
+                        <md-icon ng-bind="'delete'"></md-icon>
+                    </md-button>
+                    <img ng-if="analysis.policy.advisor.length > 0" src="{{analysis.policy.advisor[0].file}}" alt="Signature"
+                        class="image">
+                </div>
+                <div ng-if="analysis.policy.advisor.length == 0" class="dropzone">
+                    <span class="material-icons">insert_photo</span>
+                    <h2 class="text">Add Your Signature Here</h2>
+                    <signature variable="analysis.policy.advisor" name="advisor" func="updateSignature">
+                        <p class="browse">Add Signature</p>
+                    </signature>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3 class="title">Office Use</h3>
+
+        <div class="row-3">
+            <div class="input-wrap">
+                <input ng-model="analysis.policy.proposalNo" class="input" type="text" placeholder="Proposal No">
+                <label>Proposal No</label>
+            </div>
+            <div class="input-wrap">
+                <input ng-model="analysis.policy.date" class="input" type="date" placeholder="Proposal Date" date-input>
+                <label>Proposal Date</label>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h3 class="title">Signature</h3>
+
+        <div class="row-3">
+            <div class="signature-wrap">
+                <div class="top">
+                    <h3 class="title">Prospect</h3>
+                    <p class="date">12 Jan 2021</p>
+                </div>
+                <div ng-if="analysis.policy.officeProspect.length > 0" class="show-signature">
+                    <md-button ng-click="removeSignature('officeProspect')" class="md-icon-button md-secondary remove">
+                        <md-icon ng-bind="'delete'"></md-icon>
+                    </md-button>
+                    <img ng-if="analysis.policy.officeProspect.length > 0" src="{{analysis.policy.officeProspect[0].file}}"
+                        alt="Signature" class="image">
+                </div>
+                <div ng-if="analysis.policy.officeProspect.length == 0" class="dropzone">
+                    <span class="material-icons">insert_photo</span>
+                    <h2 class="text">Add Your Signature Here</h2>
+                    <signature variable="analysis.policy.officeProspect" name="officeProspect" func="updateSignature">
+                        <p class="browse">Add Signature</p>
+                    </signature>
+                </div>
+            </div>
+            <div class="signature-wrap">
+                <div class="top">
+                    <h3 class="title">Advisor</h3>
+                    <p class="date">12 Jan 2021</p>
+                </div>
+                <div ng-if="analysis.policy.officeAdvisor.length > 0" class="show-signature">
+                    <md-button ng-click="removeSignature('officeAdvisor')" class="md-icon-button md-secondary remove">
+                        <md-icon ng-bind="'delete'"></md-icon>
+                    </md-button>
+                    <img ng-if="analysis.policy.officeAdvisor.length > 0" src="{{analysis.policy.officeAdvisor[0].file}}"
+                        alt="Signature" class="image">
+                </div>
+                <div ng-if="analysis.policy.officeAdvisor.length == 0" class="dropzone">
+                    <span class="material-icons">insert_photo</span>
+                    <h2 class="text">Add Your Signature Here</h2>
+                    <signature variable="analysis.policy.officeAdvisor" name="officeAdvisor" func="updateSignature">
+                        <p class="browse">Add Signature</p>
+                    </signature>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h3 class="title">Financial Goals Achieved </h3>
+
+        <div class="table-wrap">
+            <table class="table" show-filter="false">
+                <tr class="table-head-row">
+                    <th>Lead</th>
+                    <th>Family Income Protection</th>
+                    <th>Medical Covers</th>
+                    <th>Education Fund</th>
+                    <th>Retirement Fund</th>
+                    <th>Special Fund</th>
+                    <th>Disability Fund</th>
+                </tr>
+                <tr style="display: none;" class="table-row"></tr>
+                <tr class="table-row">
+                    <td title="'Lead'">
+                        <h4 class="color-dark-blue">Achieved</h4>
+                    </td>
+                    <td title="'Family Income Protection'">
+                        <md-checkbox class="md-primary" ng-model="analysis.policy.familyIncomeProtection"></md-checkbox>
+                    </td>
+                    <td title="'Medical Covers'">
+                        <md-checkbox class="md-primary" ng-model="analysis.policy.medicalCovers"></md-checkbox>
+                    </td>
+                    <td title="'Education Fund'">
+                        <md-checkbox class="md-primary" ng-model="analysis.policy.educationFunds"></md-checkbox>
+                    </td>
+                    <td title="'Retirement Fund'">
+                        <md-checkbox class="md-primary" ng-model="analysis.policy.retirementFund"></md-checkbox>
+                    </td>
+                    <td title="'Special Fund'">
+                        <md-checkbox class="md-primary" ng-model="analysis.policy.specialFund"></md-checkbox>
+                    </td>
+                    <td title="'Disability Fund'">
+                        <md-checkbox class="md-primary" ng-model="analysis.policy.disabilityFund"></md-checkbox>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</md-content>

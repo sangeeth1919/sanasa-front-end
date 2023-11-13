@@ -1,0 +1,42 @@
+<md-dialog class="artwork-popup" aria-label="Upload Document">
+    <md-toolbar style="background-color: transparent;">
+        <div class="md-toolbar-tools">
+            <div class="tool-bar-top">
+                <div class="section">
+                    <h1 ng-if="artwork.id" class="title">Edit Document</h1>
+                    <h1 ng-if="!artwork.id" class="title">Upload Document</h1>
+                    <p class="sub">Please manage the details of the joint life</p>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            
+            <div ng-attr-data-uploaded="{{artwork.images.length > 0 ? 'true' : 'false'}}" class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" files="artwork" variable="images" data-max-file-size="50">
+                <input style="display: none;" type="file" name="image" id="artworkDropDownImage" accept="image/png, image/jpeg, image/gif" files="artwork" variable="images" file-change="image/png, image/jpeg, image/gif" >
+                <span class="material-icons">insert_photo</span>
+                <span class="text">Drag or browse file to upload (max. 50mb)</span>
+                <label class="browse" for="artworkDropDownImage">Browse</label>
+            </div>
+
+            <div class="input-wrap">
+                <textarea ng-model="artwork.note" class="input" type="text" placeholder="Add Note">{{artwork.description}}</textarea>
+                <label>Add Note</label>
+            </div>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <md-button ng-if="artwork.id" class="md-raised button bg-blue" ng-click="save('edit')">
+            Save Details
+        </md-button>
+        <md-button ng-if="!artwork.id" class="md-raised button bg-blue" ng-click="save('new')">
+            Save Details
+        </md-button>
+        <md-button ng-click="cancel()" class="md-primary button btn-outlined">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,118 @@
+$imageSize: 50px;
+
+#newLeads-analysis-personal {
+    padding-top: 20px;
+    overflow-x: auto;
+
+    .cards-wrap {
+        width: 100%;
+        max-width: 250px;
+        
+        .card {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 250px;
+            min-height: 80px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 2px solid $gray3;
+    
+            .image {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #E0179C;
+                color: $white;
+                font-size: 1.2rem;
+                text-transform: uppercase;
+                width: $imageSize;
+                height: $imageSize;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .text {
+                color: $blue;
+            }
+    
+            .add-icon {
+                border-radius: 50%;
+                color: $white;
+                background-color: $blue;
+                padding: 5px;
+            }
+        }
+    }
+
+    .line-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 100px;
+        width: 100%;
+        min-height: 70px;
+        padding: 20px 10px 20px 10px;
+
+        .line{
+            width: 100%;
+            max-width: 100px;
+            height: 2px;
+            background-color: $gray3;
+        }
+        
+        &.vertical {
+            max-width: 230px;
+
+            .line {
+                height: 50px;
+                width: 2px;
+            }
+        }
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: 260px 260px 260px;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    #newLeads-analysis-personal {
+        .row {
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .line-wrap {
+            max-width: 100%;
+
+            &.vertical {
+                max-width: 100%;
+            }
+
+            .line {
+                height: 50px;
+                width: 2px;
+            }
+        }
+
+        .grid {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+}

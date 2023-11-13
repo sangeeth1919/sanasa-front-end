@@ -1,0 +1,54 @@
+<md-dialog class="signature-popup" aria-label="Signature">
+    <md-toolbar style="background-color: transparent;">
+        <div class="md-toolbar-tools">
+            <div class="tool-bar-top">
+                <div class="section">
+                    <h1 class="title">Signature</h1>
+                    <p class="sub">Please put your signature here</p>
+                </div>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <md-content>
+                <md-tabs md-selected="signatureTabIndex" md-dynamic-height md-border-bottom>
+                    <md-tab label="Draw">
+                        <div class="signature-draw">
+                            <div class="signature-wrap">
+                                <canvas signature-draw width="600px" height="400px" ></canvas>
+                            </div>
+                            <div class="button-wrap">
+                                <md-button ng-click="clearPad()" class="button btn-outlined">Clear</md-button>
+                            </div>
+                        </div>
+                    </md-tab>
+                    <md-tab label="Upload">
+                        <div class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]" files="imageSignature" data-max-file-size="50">
+                            <div ng-if="imageSignature.length > 0" class="show-signature">
+                                <img ng-if="imageSignature.length > 0" src="{{imageSignature[0].file}}" alt="Signature" class="image">
+                            </div>
+                             <input style="display: none;" type="file" name="image" id="policySignatureDropImage" accept="image/png, image/jpeg, image/gif" files="imageSignature" file-change="image/png, image/jpeg, image/gif" >
+                             <span ng-if="imageSignature.length == 0" class="material-icons">insert_photo</span>
+                             <span ng-if="imageSignature.length == 0" class="text">Drag or browse file to upload (max. 50mb)</span>
+                             <div ng-if="imageSignature.length == 0" class="labels">
+                                 <label class="browse" for="policySignatureDropImage">Upload</label>
+                             </div>
+                         </div>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <span flex></span>
+        <md-button ng-click="saveSignature()" class="md-primary button btn-outlined" ng-click="edit()">
+            Upload Signature
+        </md-button>
+        <md-button ng-click="cancel()" class="button btn-outlined">
+            Cancel
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

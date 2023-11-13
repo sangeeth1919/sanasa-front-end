@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="container-top">
+        <div class="section">
+            <h2 class="title">New Analysis</h2>
+            <p class="last-update">Please check the details and validate data</p>
+        </div>
+        <div class="section">
+            <md-button ng-if="analysisTabIndex == 1" class="button btn-outlined" ng-click="openSideNav('leads-management-analysis-expenses')">Manage Details</md-button>
+            <md-button ng-if="analysisTabIndex == 2" class="button btn-outlined" ng-click="openSideNav('leads-management-analysis-assets')">Manage Details</md-button>
+            <md-button ng-if="analysisTabIndex == 3" class="button btn-outlined" ng-click="openSideNav('leads-management-analysis-income')">Manage Details</md-button>
+            <div ng-if="analysisTabIndex == 4" class="blue-cards-wrap">
+                <div class="blue-card">
+                    <h5 class="title">Human Live Value</h5>
+                    <p class="desc"><span class="currency">LKR.</span> 2,094,000.00</p>
+                </div>
+                <div class="blue-card">
+                    <h5 class="title">Protection Need</h5>
+                    <p class="desc"><span class="currency">LKR.</span> 3,906,000.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs-section">
+        <md-content>
+            <md-tabs md-selected="analysisTabIndex" md-dynamic-height md-border-bottom md-stretch-tabs="always">
+                <md-tab label="Personal Details">
+                    <div class="tab-div" id="newLeads-analysis-personal" ng-include="'views/leads/new/new-analysis/personal.html'"></div>
+                </md-tab>
+                <md-tab label="Monthly Expenses">
+                    <div class="tab-div" id="newLeads-analysis-expense" ng-include="'views/leads/new/new-analysis/expenses.html'"></div>
+                </md-tab>
+                <md-tab label="Assets & Liabilities">
+                    <div class="tab-div" id="newLeads-analysis-assets" ng-include="'views/leads/new/new-analysis/assets.html'"></div>
+                </md-tab>
+                <md-tab label="Monthly Income">
+                    <div class="tab-div" id="newLeads-analysis-income" ng-include="'views/leads/new/new-analysis/income.html'"></div>
+                </md-tab>
+                <md-tab label="Policy Info">
+                    <div class="tab-div" id="newLeads-analysis-policy" ng-include="'views/leads/new/new-analysis/policy.html'"></div>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+</div>

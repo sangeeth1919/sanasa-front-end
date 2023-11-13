@@ -1,0 +1,168 @@
+$imageSize: 100px;
+
+#followUpLeads {
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .circle-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        min-width: 940px;
+
+        .profile-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: absolute;
+            z-index: -1;
+            
+            .image { 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                width: 100%;
+                max-width: $imageSize;
+                min-height: $imageSize;
+                background-color: #F2D125;
+                color: #fff;
+                
+                .nameLetter{
+                    font-size: 2rem !important;
+                    font-size: 500;
+                }
+            }
+            
+            .text-wrap{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+                .desc{
+                    font-size: 0.8rem;
+                    color: $gray1;
+                }
+            }
+        }
+
+        .labels{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+
+            .label-wrap {
+                display: flex;
+                width: max-content;
+                align-items: center;
+                gap: 20px;
+                position: absolute;
+                width: max-content;
+
+                .text{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    color: #100362;
+                    font-weight: 500;
+                    cursor: pointer;
+
+                    .desc {
+                        font-size: 0.8rem;
+                        color: #5D6CAC;
+                        font-weight: 400;
+                    }
+                }
+                
+                &[data-align="left"] {
+                    &::after {
+                        content: "";
+                        width: 50px;
+                        height: 2px;
+                        background-color: $gray2;
+                    }
+                    
+                    &[data-verticalLine="true"] {
+                        &::before {
+                            content: "";
+                            width: 2px;
+                            height: 30px;
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            background-color: $gray2;
+                        }
+                    }
+                }
+
+
+                &[data-align="right"] {
+                    &::before {
+                        content: "";
+                        width: 50px;
+                        height: 2px;
+                        background-color: $gray2;
+                    }
+
+                    &[data-verticalLine="true"] {
+                        &::after {
+                            content: "";
+                            width: 2px;
+                            height: 30px;
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            background-color: $gray2;
+                        }
+                    }
+                }
+
+                &[data-centerVerticalLine="true"] {
+
+                    &::after {
+                        content: "";
+                        width: 0px;
+                    }
+                    
+                    &::before {
+                        content: "";
+                        width: 2px;
+                        height: 30px;
+                        position: absolute;
+                        top: -150%;
+                        left: 50%;
+                        background-color: $gray2;
+                    }
+                }
+
+                &:first-child{
+                    &::after {
+                        content: "";
+                        width: 0px;
+                    }
+                    &::before {
+                        content: "";
+                        width: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 770px) {
+    #followUpLeads {
+        .content {
+            justify-content: flex-start;
+        }
+    }
+}

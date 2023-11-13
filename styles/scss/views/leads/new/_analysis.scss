@@ -1,0 +1,42 @@
+#newLeads-analysis {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 100px;
+
+        .blue-cards-wrap{
+            display: flex;
+            gap: 20px;
+
+            .blue-card {
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                background-color: #F8FAFF;
+
+                .title {
+                    color: $gray1;
+                }
+
+                .desc {
+                    font-weight: 500;
+                    font-size: 0.95rem;
+
+                    .currency {
+                        font-weight: 300;
+                        color: $gray1;
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import './new-analysis/expenses';
+@import './new-analysis/assets';
+@import './new-analysis/income';
+@import './new-analysis/policy';
+@import './new-analysis/personal';

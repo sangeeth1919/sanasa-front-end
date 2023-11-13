@@ -1,0 +1,107 @@
+.table-wrap {
+    overflow-x: auto;
+
+    .table {
+        table-layout: auto;
+        min-width: 700px;
+        width: 100%;
+        padding: 20px 0 20px 0;
+
+        .ng-table-sort-header {
+
+            .ng-table-header {
+                float: left;
+            }
+
+            th {
+                border-bottom: 2px solid $gray3;
+                padding: 15px 10px 15px 10px;
+
+                .ng-table-header {
+                    display: flex;
+                }
+            }
+        }
+
+        .table-head-row {
+            width: 100%;
+
+            th {
+                text-align: left;
+                border-bottom: 2px solid #dee5f6;
+                padding: 15px 10px 15px 10px;
+            }
+        }
+
+
+        .table-row {
+            width: 100%;
+
+            &:nth-child(odd) {
+                background-color: #F9FAFC;
+            }
+
+            td {
+                text-align: center;
+                padding: 20px;
+                min-width: 150px;
+            }
+        }
+    }
+}
+
+.ng-table-pager {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid $gray3;
+    padding: 20px 10px 20px 10px;
+    min-width: 700px;
+    width: 100%;
+
+    .pagination {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+
+        li {
+            a {
+                border: 2px solid $gray3;
+                padding: 5px 10px 5px 10px;
+                border-radius: 5px;
+                color: #969ECB;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+
+            &:first-child,
+            &:last-child {
+                a {
+                    border-color: transparent;
+                }
+            }
+
+            &.active {
+                a {
+                    color: #445FE8;
+                }
+            }
+        }
+    }
+
+    .ng-table-counts {
+        display: flex;
+        gap: 10px;
+
+        button {
+            outline: none;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: #969ECB;
+
+            &.active {
+                color: #445FE8;
+            }
+        }
+    }
+}

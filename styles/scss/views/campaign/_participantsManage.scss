@@ -1,0 +1,50 @@
+#participantsManage {
+	.dropzone-wrap {
+		width: 100%;
+
+		.dropzone {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			padding: 15px;
+			min-height: min-content;
+			border: 2px solid $gray3;
+			background-color: transparent;
+			transition: all 0.5s ease;
+			.remove {
+				color: #100362;
+				cursor: pointer;
+			}
+
+			&[data-uploaded="true"] {
+				background-color: #c8fce0;
+			}
+		}
+	}
+
+	.row {
+		display: flex;
+		gap: 20px;
+
+		.input-wrap {
+			max-width: 40%;
+			width: 100%;
+
+			&.input-lg {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 960px) {
+	#participantsManage {
+		.row {
+			flex-direction: column;
+
+			.input-wrap {
+				max-width: 100%;
+			}
+		}
+	}
+}   

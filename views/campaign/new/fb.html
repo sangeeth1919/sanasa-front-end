@@ -1,0 +1,39 @@
+<md-content id="fb" class="md-padding">
+    <div class="fb-table-wrap">
+        <table class="fb-table">
+            <tr class="row header">
+                <th class="head">Cost Type</th>
+                <th class="head">Description</th>
+                <th class="head">Amount</th>
+                <th class="head"></th>
+            </tr>
+    
+            <tr class="row">
+                <td class="data">
+                    <input ng-model="newFb.type" class="input" type="text" placeholder="Cost Type">
+                </td>
+                <td class="data">
+                    <input ng-model="newFb.description" class="input" type="text" placeholder="Description">
+                </td>
+                <td class="data">
+                    <input ng-model="newFb.amount" min="0" class="input" type="number" placeholder="Amount">
+                </td>
+                <td class="data"></td>
+            </tr>
+            <tr class="row" ng-if="fb.length > 0" ng-repeat="(i, item) in fb">
+                <td class="data">
+                    <input class="input" type="text" placeholder="Cost Type" ng-model="item.type">
+                </td>
+                <td class="data">
+                    <input class="input" type="text" placeholder="Description" ng-model="item.description" >
+                </td>
+                <td class="data">
+                    <input min="0" class="input" type="number" placeholder="Amount" ng-model="item.amount" >
+                </td>
+                <td class="data">
+                    <md-button ng-click="removeFromFbList(i)" class="button" >Remove</md-button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</md-content>

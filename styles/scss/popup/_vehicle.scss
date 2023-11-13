@@ -1,0 +1,52 @@
+.vehicle-popup{
+
+    .md-dialog-content{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .row {
+            display: flex;
+            gap: 20px;
+
+            .input-wrap {
+                width: 100%;
+            }
+        }
+    }
+
+    .files-wrap{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .file-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .name {
+                overflow-x: hidden;
+                max-width: 350px;
+            }
+            
+            .button-wrap {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .vehicle-popup{
+        .md-dialog-content{
+            .row {
+                flex-direction: column;
+            }
+        }
+    }
+}

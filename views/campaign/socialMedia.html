@@ -1,0 +1,40 @@
+<div id="socialMediaCampaign" class="container" ng-controller="socialMediaCampaignController">
+    <div class="container-top">
+        <div class="section">
+            <h2 class="title">Social Media Campaigns</h2>
+            <p ng-if="tabIndex == 0" class="last-update">Last added {{getLastCreatedAt(sms) | lastUpdated}}</p>
+            <p ng-if="tabIndex == 1" class="last-update">Last added {{getLastCreatedAt(notifications) | lastUpdated}}</p>
+            <p ng-if="tabIndex == 2" class="last-update">Last added {{getLastCreatedAt(emails) | lastUpdated}}</p>
+            <p ng-if="tabIndex == 3" class="last-update">Last added {{getLastCreatedAt(e_notice) | lastUpdated}}</p>
+        </div>
+
+        <div class="section">
+            <div class="search-input-wrap">
+                <input ng-model="searchTxT" type="text" class="input" placeholder="Search ...">
+            </div>
+            
+            <md-button ng-click="openSideNav('campaign-management-social-media', {artwork: []})" class="md-primary md-raised button bg-blue">New Notification</md-button>
+        </div>
+    </div>
+
+    <div class="tabs-section">
+        <md-content>
+            <md-tabs md-selected="tabIndex" md-dynamic-height md-border-bottom md-stretch-tabs="always">
+                <md-tab label="Sms">
+                    <div class="tab-div" id="socialmedia-sms" ng-include="'views/campaign/social/sms.html'"></div>
+                </md-tab>
+                <md-tab label="Notifications">
+                    <div class="tab-div" id="socialmedia-notifications" ng-include="'views/campaign/social/notifications.html'"></div>
+                </md-tab>
+                <md-tab label="Emails">
+                    <div class="tab-div" id="socialmedia-emails" ng-include="'views/campaign/social/emails.html'"></div>
+                </md-tab>
+                <md-tab label="E-Notice">
+                    <div class="tab-div" id="socialmedia-enotices" ng-include="'views/campaign/social/e-notice.html'"></div>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+
+    <section id="socialMediaCampaign-manage" class="side-nav" ng-include="'sidenav/campaign/socialMedia.html'" ></section>
+</div>

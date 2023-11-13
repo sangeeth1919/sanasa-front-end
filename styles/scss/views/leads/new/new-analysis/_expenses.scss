@@ -1,0 +1,50 @@
+#newLeads-analysis-expense {
+	.top-total {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 20px;
+		padding: 20px 0 20px 0;
+		font-weight: bold;
+		border-bottom: 2px solid $gray3;
+        margin-bottom: 30px;
+
+		.value {
+			span {
+				font-size: 0.9rem;
+				font-weight: 400;
+			}
+		}
+	}
+
+	.col-2 {
+		display: grid;
+		grid-template-columns: 45% 45%;
+		gap: 50px;
+		max-width: 1360px;
+
+		row-gap: 30px;
+
+		.item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			width: 100%;
+			gap: 10px;
+
+			.input {
+				padding: 10px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 770px) {
+	#newLeads-analysis-expense {
+		.col-2 {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}

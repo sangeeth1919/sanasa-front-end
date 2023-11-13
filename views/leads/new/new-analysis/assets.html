@@ -1,0 +1,33 @@
+<md-content class="md-padding">
+    
+    <div class="col-2">
+        <div class="col">
+            <div class="title-wrap">
+                <p class="main-title">Liabilities</p>
+                
+                <div class="top-total">
+                    <p class="title">Total Liabilities</p>
+                    <p class="value"><span>LKR.</span> {{analysisLiabilitiesTotal}}</p>
+                </div>
+            </div>
+            <div ng-if="ignoreKeys(key)" class="item" ng-repeat="(key, value) in analysis.liabilities" >
+                <p class="title">{{key | convertToTitleCase}}</p>
+                <p class="value">{{value}}</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="title-wrap">
+                <p class="main-title">Assets</p>
+                
+                <div class="top-total">
+                    <p class="title">Total Assets</p>
+                    <p class="value"><span>LKR.</span> {{analysisAssetsTotal}}</p>
+                </div>
+            </div>
+            <div ng-if="ignoreKeys(key)" class="item" ng-repeat="(key, value) in analysis.assets" >
+                <p class="title">{{key | convertToTitleCase}}</p>
+                <p class="value">{{value}}</p>
+            </div>
+        </div>
+    </div>
+</md-content>

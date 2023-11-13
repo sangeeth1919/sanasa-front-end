@@ -1,0 +1,37 @@
+#mainInfo {
+    .row {
+        display: grid;
+        grid-template-columns: 65% 30%;
+        justify-content: space-between;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .radio-btns{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .title {
+            font-weight: 500;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: max-content;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    #mainInfo {
+        .row {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

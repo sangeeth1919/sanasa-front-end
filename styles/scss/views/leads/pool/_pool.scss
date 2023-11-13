@@ -1,0 +1,32 @@
+#leadsManagement-pool {
+    .container-top {
+        padding-top: 20px;
+    }
+
+    md-pagination-wrapper {
+        width: 100%;
+    }
+
+    md-tab-item {
+        user-select: none;
+        color: $gray1;
+        width: 50%;
+        max-width: 100% !important;
+
+        &.md-active {
+            background-color: #EEF3FF;
+            color: $darkBlue;
+        }
+    }
+
+    md-ink-bar {
+        color: $blue;
+        background-color: $blue;
+        width: 50%;
+    }
+
+    md-content {
+        background-color: $white;
+    }
+
+}

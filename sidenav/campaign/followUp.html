@@ -1,0 +1,117 @@
+<md-sidenav class="md-sidenav-right md-padding" md-component-id="campaign-management-followup" md-whiteframe="4"
+    md-disable-close-events>
+
+    <md-toolbar>
+        <div class="section">
+            <md-button ng-click="closeSideNav('campaign-management-followup')" class="md-icon-button"
+                aria-label="Close">
+                <md-icon ng-bind="'close'"></md-icon>
+            </md-button>
+        </div>
+
+        <div class="section">
+            <h3 class="title">Outdoor Campaign</h3>
+            <p class="desc">12 Jan 2021 - 15 Jan 2021</p>
+        </div>
+        <div class="social-section">
+            <a href="{{social.link}}" target="_blank" class="social-wrap" ng-repeat="social in socials">
+                <span class="iconify" data-icon="mdi:{{social.icon}}"></span>
+            </a>
+        </div>
+    </md-toolbar>
+
+    <md-content class="content-wrap" layout-margin="">
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Description</h4>
+            </div>
+
+            <div class="inputs-wrap">
+                <div class="input-wrap dropdown">
+                    <md-select name="type" ng-model="followUp.campaignId">
+                        <md-select-header>
+                            <input style="width: 88%;" ng-model="searchTxt" class="input select-header-input"
+                                onkeydown="event.stopPropagation()">
+                        </md-select-header>
+                        <md-option value="{{campaign.id}}" ng-repeat="campaign in campaigns | filter : searchTxt">
+                            {{campaign.name}}</md-option>
+                    </md-select>
+                    <label>Campaign</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="followUp.title" class="input" type="text" placeholder="Title">
+                    <label>Title</label>
+                </div>
+                <div class="input-wrap">
+                    <textarea ng-model="followUp.message" class="input" type="text" placeholder="Message">{{followUp.message}}</textarea>
+                    <label>Message</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Date Time</h4>
+            </div>
+
+            <div class="inputs-wrap row">
+                <div class="input-wrap">
+                    <input ng-model="followUp.dateFrom" class="input" type="date" placeholder="Date From">
+                    <label>Date From</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="followUp.timeFrom" class="input" type="time" placeholder="Time From">
+                    <label>Time From</label>
+                </div>
+            </div>
+            <div class="inputs-wrap row">
+                <div class="input-wrap">
+                    <input ng-model="followUp.dateTo" class="input" type="date" placeholder="Date To">
+                    <label>Date To</label>
+                </div>
+                <div class="input-wrap">
+                    <input ng-model="followUp.timeTo" class="input" type="time" placeholder="Time To">
+                    <label>Time To</label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Status</h4>
+            </div>
+
+            <md-radio-group class="radio-wrap" ng-model="followUp.status" aria-labelledby="Status">
+                <md-radio-button class="md-primary" value="Not Started">Not Started</md-radio-button>
+                <md-radio-button class="md-primary" value="In Progress">In Progress</md-radio-button>
+                <md-radio-button class="md-primary" value="Completed">Completed</md-radio-button>
+            </md-radio-group>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Priority</h4>
+            </div>
+
+            <md-radio-group class="radio-wrap" ng-model="followUp.priority" aria-labelledby="Priority">
+                <md-radio-button class="md-primary" value="Low">Low</md-radio-button>
+                <md-radio-button class="md-primary" value="Normal">Normal</md-radio-button>
+                <md-radio-button class="md-primary" value="High">High</md-radio-button>
+                <md-radio-button class="md-primary" value="Critical">Critical</md-radio-button>
+            </md-radio-group>
+        </div>
+        <div class="content">
+            <div class="title-wrap title-wrap-2">
+                <h4 class="title">Add Recipient or Group</h4>
+            </div>
+
+            <md-chips class="followUp-chips input" ng-model="followUp.recipients" md-add-on-blur="true"
+                input-aria-label="Recipient Or Group" md-removable="removable" readonly="false"></md-chips>
+        </div>
+    </md-content>
+
+    <div class="buttons-wrap">
+        <md-button ng-click="saveFollowUp()" class="md-primary md-raised button bg-blue lg">Send</md-button>
+        <md-button ng-click="closeSideNav('campaign-management-followup')" class="md-primary button btn-outlined lg">
+            Cancel</md-button>
+    </div>
+
+
+</md-sidenav>

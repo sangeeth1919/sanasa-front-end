@@ -1,0 +1,24 @@
+<div class="barChart-component">
+    <div class="series-wrap" ng-if="!!series.length">
+        <div class="series" ng-repeat="(i, item) in series">
+            <div ng-style="{backgroundColor: getColor(i)}" class="color"></div>
+            {{item}}
+        </div>
+    </div>
+    <div class="chart">
+        <div class="y">
+            <div class="rows">
+                <div class="row" ng-repeat="i in getYAxis()">{{i}}</div>
+            </div>
+            <div class="labels"></div>
+        </div>
+        <div class="groups-wrap">
+            <div class="group" ng-repeat="(i, a) in getMaxLengthArray() track by $index">
+                <div class="bars">
+                    <div class="bar" ng-style="{'height': b[i] + '%', backgroundColor: getColor(y)}" ng-repeat="(y, b) in data"></div>
+                </div>
+                <div class="label">{{getLabel(i)}}</div>
+            </div>
+        </div>
+    </div>
+</div>
