@@ -20,10 +20,12 @@
             <h4 class="title">Service Area</h4>
 
             <div class="input-wrap dropdown">
-                <md-select ng-disabled="!!assign.id" name="type" ng-model="assign.area">
-                    <md-option value="Homagama">Homagama</md-option>
-                    <md-option value="Maharagama">Maharagama</md-option>
-                    <md-option value="Nugegoda">Nugegoda</md-option>
+                <md-select name="type" ng-model="assign.area" aria-placeholder="Area">
+                    <md-option value="Zone">Zone</md-option>
+                    <md-option value="District">District</md-option>
+                    <md-option value="Region">Region</md-option>
+                    <md-option value="Cluster">Cluster</md-option>
+                    <md-option value="Branch">Branch</md-option>
                 </md-select>
                 <label>Area</label>
             </div>

@@ -80,6 +80,11 @@ app.controller('newCampaignController', ($scope, NgTableParams, $mdDialog, $http
         { label: 'Leasing', value: 150000 },
         { label: 'Rent', value: 150000 },
     ];
+    $scope.channel = [
+        { label: 'Direct channel'},
+        { label: 'Society channel'},
+        { label: 'Corporate chanel'},
+    ];
     $scope.otherArrangementsList = [
         { label: 'Sounds', value: 5, files: [] },
         { label: 'Multimedia', value: 4, files: [] },
