@@ -130,6 +130,30 @@ app.controller('newLeadsController', ($scope, NgTableParams, $mdSidenav, $http, 
         { info: { name: "Divithura (15)", commencementYear: "2020", termType: "Monthly", maturityYear: "2040", commencementAge: "60", policyTerms: "240", maturityAge: "60" }, data: { sumAssured: { cover: "sumAssured", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, additionalLife: { cover: "additionalLife", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, accident: { cover: "accident", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, ppd: { cover: "ppd", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, criticalIllness: { cover: "criticalIllness", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, hospital: { cover: "hospital", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, funeralExpenses: { cover: "funeralExpenses", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, spouse: { cover: "spouse", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, spouseAlc: { cover: "spouseAlc", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, spouseCriticalIllness: { cover: "spouseCriticalIllness", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, spouseHospital: { cover: "spouseHospital", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" } } },
         { info: { name: "Investment (19)", commencementYear: "2020", termType: "Monthly", maturityYear: "2040", commencementAge: "60", policyTerms: "240", maturityAge: "60" }, data: { sumAssured: { cover: "sumAssured", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, additionalLife: { cover: "additionalLife", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, accident: { cover: "accident", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, ppd: { cover: "ppd", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, criticalIllness: { cover: "criticalIllness", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, hospital: { cover: "hospital", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, funeralExpenses: { cover: "funeralExpenses", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, spouse: { cover: "spouse", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, spouseAlc: { cover: "spouseAlc", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, spouseCriticalIllness: { cover: "spouseCriticalIllness", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" }, spouseHospital: { cover: "spouseHospital", existingPolicy: "150000", amount: "150000", monthlyPremium: "150000", perDayPremium: "150000" } } },
     ]
+    $scope.businessChannel = [
+        { label: 'Direct channel'},
+        { label: 'Society channel'},
+        { label: 'Corporate chanel'},
+    ];
+    $scope.branch = [
+        { label: 'Kegalle Branch'},
+        { label: 'Kurunegela Branch'},
+        { label: 'Rathnapura Branch'},
+        { label: 'Gampaha Branch'},
+        { label: 'Colombo Branch'},
+        { label: 'Galle Branch'},
+        { label: 'Anuradhapura Branch'},
+        { label: 'Ambilipitiya Branch'},
+        { label: 'Warakapola Branch'},
+        { label: 'Kaluthara Branch'},
+    ];
+    $scope.serviceArea = [
+        { label: 'Zone'},
+        { label: 'District'},
+        { label: 'Region'},
+        { label: 'Cluster'},
+        { label: 'Branch'},
+    ];
     $scope.policy = {
         proposedPlans: []
     }
