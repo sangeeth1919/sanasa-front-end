@@ -31,8 +31,10 @@
             <label>Campaign Location Longitude</label>
         </div>
         <div class="input-wrap dropdown">
-            <md-select name="type" ng-model="mainInfo.channel" aria-placeholder="Society">
-                <md-option value="society">Society</md-option>
+            <md-select name="type" ng-model="mainInfo.channel" aria-placeholder="channel">
+                <md-option value="direct">Direct channel</md-option>
+                <md-option value="society">Society channel</md-option>
+                <md-option value="corporate">Corporate chanel</md-option>
             </md-select>
             <label>Business Channel</label>
         </div>
@@ -44,7 +46,15 @@
         </div>
         <div class="input-wrap dropdown">
             <md-select name="type" ng-model="mainInfo.branch">
-                <md-option value="zone">Zone</md-option>
+                <md-option value="kurunegela">Kurunegela Branch</md-option>
+                <md-option value="rathnapura">Rathnapura Branch</md-option>
+                <md-option value="gampaha">Gampaha Branch</md-option>
+                <md-option value="colombo">Colombo Branch</md-option>
+                <md-option value="galle">Galle Branch</md-option>
+                <md-option value="anuradhapura">Anuradhapura Branch</md-option>
+                <md-option value="ambilipitiya">Ambilipitiya Branch</md-option>
+                <md-option value="warakapola">Warakapola Branch</md-option>
+                <md-option value="kaluthara">Kaluthara Branch</md-option>
             </md-select>
             <label>Branch</label>
         </div>
