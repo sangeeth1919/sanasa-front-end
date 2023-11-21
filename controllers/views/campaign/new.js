@@ -80,7 +80,7 @@ app.controller('newCampaignController', ($scope, NgTableParams, $mdDialog, $http
         { label: 'Leasing', value: 150000 },
         { label: 'Rent', value: 150000 },
     ];
-    $scope.channel = [
+    $scope.businessChannel = [
         { label: 'Direct channel'},
         { label: 'Society channel'},
         { label: 'Corporate chanel'},
