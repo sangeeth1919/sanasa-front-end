@@ -44,7 +44,7 @@ app.controller('newCampaignController', ($scope, NgTableParams, $mdDialog, $http
         recruitmentNum: '',
         note: '',
     }
-    $scope.society = 'zone'
+    // $scope.society = 'zone'
     $scope.budgets = []
     $scope.budgetsTotal = 0;
     $scope.otherArrangementsTotal = 0;
@@ -86,16 +86,16 @@ app.controller('newCampaignController', ($scope, NgTableParams, $mdDialog, $http
         { label: 'Corporate chanel'},
     ];
     $scope.branch = [
-        { label: 'Kegalle'},
-        { label: 'Kurunegela'},
-        { label: 'Rathnapura'},
-        { label: 'Gampaha'},
-        { label: 'Colombo'},
-        { label: 'Galle'},
-        { label: 'Anuradhapura'},
-        { label: 'Ambilipitiya'},
-        { label: 'Warakapola'},
-        { label: 'Kaluthara'},
+        { label: 'Kegalle Branch'},
+        { label: 'Kurunegela Branch'},
+        { label: 'Rathnapura Branch'},
+        { label: 'Gampaha Branch'},
+        { label: 'Colombo Branch'},
+        { label: 'Galle Branch'},
+        { label: 'Anuradhapura Branch'},
+        { label: 'Ambilipitiya Branch'},
+        { label: 'Warakapola Branch'},
+        { label: 'Kaluthara Branch'},
     ];
     $scope.otherArrangementsList = [
         { label: 'Sounds', value: 5, files: [] },
