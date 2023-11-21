@@ -86,16 +86,16 @@ app.controller('newCampaignController', ($scope, NgTableParams, $mdDialog, $http
         { label: 'Corporate chanel'},
     ];
     $scope.branch = [
-        { label: 'Kegalle Branch'},
-        { label: 'Kurunegela Branch'},
-        { label: 'Rathnapura Branch'},
-        { label: 'Gampaha Branch'},
-        { label: 'Colombo Branch'},
-        { label: 'Galle Branch'},
-        { label: 'Anuradhapura Branch'},
-        { label: 'Ambilipitiya Branch'},
-        { label: 'Warakapola Branch'},
-        { label: 'Kaluthara Branch'},
+        { label: 'Kegalle'},
+        { label: 'Kurunegela'},
+        { label: 'Rathnapura'},
+        { label: 'Gampaha'},
+        { label: 'Colombo'},
+        { label: 'Galle'},
+        { label: 'Anuradhapura'},
+        { label: 'Ambilipitiya'},
+        { label: 'Warakapola'},
+        { label: 'Kaluthara'},
     ];
     $scope.otherArrangementsList = [
         { label: 'Sounds', value: 5, files: [] },
