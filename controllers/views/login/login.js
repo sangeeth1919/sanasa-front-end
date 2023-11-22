@@ -1,5 +1,10 @@
-app.controller('login', function ($scope, $location) {
+app.controller('login', ['$scope', '$location', function ($scope, $location) {
     $scope.login = function () {
-        $location.path('/');
+        
+        if ($scope.username === 'user' && $scope.password === 'password') {
+            $location.path('/');
+        } else {
+            alert('Invalid credentials. Please try again.');
+        }
     };
-});
+}]);
