@@ -10,7 +10,6 @@ app.config(['$routeProvider', '$locationProvider', '$mdThemingProvider', functio
     $routeProvider
         .when('/login', {
             templateUrl: 'views/login.html',
-            controller: 'login'
         })
         /* competition management */
         .when('/competition-management', {
