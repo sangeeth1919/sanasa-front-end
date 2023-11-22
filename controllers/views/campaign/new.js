@@ -97,6 +97,13 @@ app.controller('newCampaignController', ($scope, NgTableParams, $mdDialog, $http
         { label: 'Warakapola Branch'},
         { label: 'Kaluthara Branch'},
     ];
+    $scope.locationType = [
+        { label: 'Zone'},
+        { label: 'District'},
+        { label: 'Region'},
+        { label: 'Cluster'},
+        { label: 'Branch'},
+    ];
     $scope.otherArrangementsList = [
         { label: 'Sounds', value: 5, files: [] },
         { label: 'Multimedia', value: 4, files: [] },
