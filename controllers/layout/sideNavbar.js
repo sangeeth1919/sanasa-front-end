@@ -36,42 +36,42 @@ app.controller('SideNavbarController', ($scope, $location) => {
     $scope.socials = socials
 
     let links = [
-        {
-            link: '',
-            label: 'Dashboard'
-        },
-        {
-            link: '#/profile',
-            label: 'My Profile'
-        },
-        {
-            link: '#/report-download',
-            label: 'Report Download'
-        },
+        // {
+        //     link: '',
+        //     label: 'Dashboard'
+        // },
+        // {
+        //     link: '#/profile',
+        //     label: 'My Profile'
+        // },
+        // {
+        //     link: '#/report-download',
+        //     label: 'Report Download'
+        // },
         {
             link: '#/leads-management',
             label: 'Leads Management'
         },
-        {
-            link: '#/training-development',
-            label: 'Training & Development'
-        },
-        {
-            link: '#/competition-management',
-            label: 'Competition Management'
-        },
+        // {
+        //     link: '#/training-development',
+        //     label: 'Training & Development'
+        // },
+        // {
+        //     link: '#/competition-management',
+        //     label: 'Competition Management'
+        // },
         {
             link: '#/campaign-management',
             label: 'Campaign Management'
         },
-        {
-            link: '#/customer-service',
-            label: 'Customer Service'
-        },
-        {
-            link: '#/my-income',
-            label: 'My Income'
-        },
+        // {
+        //     link: '#/customer-service',
+        //     label: 'Customer Service'
+        // },
+        // {
+        //     link: '#/my-income',
+        //     label: 'My Income'
+        // },
         {
             link: '#/loans',
             label: 'Loans'
