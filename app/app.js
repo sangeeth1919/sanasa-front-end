@@ -8,9 +8,6 @@ app.config(['$routeProvider', '$locationProvider', '$mdThemingProvider', functio
     $locationProvider.hashPrefix('')
 
     $routeProvider
-        // .when('/login', {
-        //     templateUrl: 'views/login.html',
-        // })
         /* competition management */
         .when('/competition-management', {
             templateUrl: 'views/competitionManagement.html'
